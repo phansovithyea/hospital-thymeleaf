@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="card-body">
+        <table th:fragment="list_data" th:if="${screenType != 'K' && screenType != 'D'}"
+            class="table table-sm table-hover table-striped table-bordered bg-white">
+            <thead>
+                <tr th:if="${listData != null && listData.size() > 0}">
+                    <th th:each="c:${listData[0]}" th:text="${c.getKey()}">
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="col:${listData}" th:data-text="@{|${session.search}/view/?id=${col.get('ID')}|}"
+                    ondblclick="GoToUrl(this.getAttribute('data-text'))">
+                    <td nowrap th:each="v:${col}" >
+                        <span th:if="${v.getValue()!=null}" th:switch="${v.getValue().getClass().toString()}">
+                            <span th:case="'class java.math.BigDecimal'" th:text="${#numbers.formatDecimal(v.getValue(),1,2) }"></span>
+                            <span th:case="'class java.lang.Double'" th:text="${#numbers.formatDecimal(v.getValue(),1,2) }"></span>
+                            <span th:case="'class java.lang.Short'" th:text="${#numbers.formatDecimal(v.getValue(),1,2) }"></span>
+                            <span th:case="'class java.lang.Float'" th:text="${#numbers.formatDecimal(v.getValue(),1,2) }"></span>
+                            <span th:case="'class java.lang.Long'" th:text="${#numbers.formatInteger(v.getValue(),3) }"></span>
+                            <span th:case="'class java.lang.Integer'" th:text="${#numbers.formatInteger(v.getValue(),3) }"></span>
+                            <span th:case="*" th:text="${v.getValue()}"></span>
+                        </span>
+                        <span th:if="${v.getValue()==null}" th:text="${v.getValue()}"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table th:fragment="list_data" th:if="${screenType != 'K' && screenType != 'D'}"
+            class="table table-sm table-hover table-striped">
+            <thead>
+                <tr th:if="${listTotal != null && listTotal.size() > 0}">
+                    <th th:each="c:${listTotal[0]}" th:text="${c.getKey()}">
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="col:${listTotal}" th:data-text="|${session.search}/view/?id=${col.get('ID')}|">
+                    <!-- ondblclick="GoToUrl(this.getAttribute('data-text'))"> -->
+                    <td nowrap th:each="v:${col}" >
+                        <span th:if="${v.getValue()!=null}" th:switch="${v.getValue().getClass().toString()}">
+                            <span th:case="'class java.math.BigDecimal'" th:text="${#numbers.formatDecimal(v.getValue(),1,2) }"></span>
+                            <span th:case="'class java.lang.Double'" th:text="${#numbers.formatDecimal(v.getValue(),1,2) }"></span>
+                            <span th:case="'class java.lang.Short'" th:text="${#numbers.formatDecimal(v.getValue(),1,2) }"></span>
+                            <span th:case="'class java.lang.Float'" th:text="${#numbers.formatDecimal(v.getValue(),1,2) }"></span>
+                            <span th:case="'class java.lang.Long'" th:text="${#numbers.formatInteger(v.getValue(),3) }"></span>
+                            <span th:case="'class java.lang.Integer'" th:text="${#numbers.formatInteger(v.getValue(),3) }"></span>
+                            <span th:case="*" th:text="${v.getValue()}"></span>
+                        </span>
+                        <span th:if="${v.getValue()==null}" th:text="${v.getValue()}"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

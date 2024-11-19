@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/header :: header"></head>
+
+<body>
+
+	<div class="container">
+
+		<div class="row" style="padding-top: 6rem;">
+			<div class="col-md-4"></div>
+			<div class="col-md-5 col-sm-4">
+				<div class="card">
+					<div class="card-header">
+						<h3>Password Request</h3>
+					</div>
+					<div class="card-body">
+						<div th:if="${message}" th:text="${message}" th:class="${class}"
+							role="alert"></div>
+						<form th:action="@{/reset}" method="POST" th:object="${account}">
+							<input type="hidden" th:name="${_csrf.parameterName}"
+								th:value="${_csrf.token}" />
+
+
+							<div class="row form-group">
+								<label class="control-label col-md-4 text-sm-left text-md-right"
+									th:for="Email">Email</label>
+								<div class="col-md-8">
+
+									<input type="email" th:field="*{Email}" required
+										placeholder="sample@sbilhbank.com.kh"
+										th:class="${#fields.hasErrors('Email')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<label class="control-label col-md-4 text-sm-left text-md-right"
+									th:for="UserID">User Name</label>
+								<div class="col-md-8">
+
+									<input type="text" th:field="*{UserID}" required
+										th:class="${#fields.hasErrors('UserID')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+
+								</div>
+
+							</div>
+
+							<a th:href="@{/}" class="btn btn-sm btn-warning">Cancel</a> <input
+								type="submit" value="Send Recovery password"
+								class="btn btn-sm btn-primary pull-right">
+						</form>
+					</div>
+					<!-- <div class="card-footer">
+
+                    </div> -->
+
+				</div>
+			</div>
+
+
+
+		</div>
+
+	</div>
+
+</body>
+<div th:fragment="layout/script :: script"></div>
+
+</html>

@@ -1,0 +1,3411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MonthlyPayrol" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c8da54ab-5a84-4e6f-a193-60aed1e5fc81">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="erpuat"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="179"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="816"/>
+	<parameter name="ReportCode" class="java.lang.String"/>
+	<parameter name="UserID" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[exec Payroll_GetReport $P{ReportCode},'  and status = 1   ',$P{UserID}]]>
+	</queryString>
+	<field name="ID" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="ID"/>
+		<property name="com.jaspersoft.studio.field.name" value="ID"/>
+	</field>
+	<field name="CompanyID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="CompanyID"/>
+		<property name="com.jaspersoft.studio.field.name" value="CompanyID"/>
+	</field>
+	<field name="BranchID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BranchID"/>
+		<property name="com.jaspersoft.studio.field.name" value="BranchID"/>
+	</field>
+	<field name="EmployeeID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="EmployeeID"/>
+		<property name="com.jaspersoft.studio.field.name" value="EmployeeID"/>
+	</field>
+	<field name="PeriodID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PeriodID"/>
+		<property name="com.jaspersoft.studio.field.name" value="PeriodID"/>
+	</field>
+	<field name="Workday" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="Workday"/>
+		<property name="com.jaspersoft.studio.field.name" value="Workday"/>
+	</field>
+	<field name="FeePerDay" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="FeePerDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="FeePerDay"/>
+	</field>
+	<field name="RealWorkDay" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="RealWorkDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="RealWorkDay"/>
+	</field>
+	<field name="RealWorkHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="RealWorkHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="RealWorkHour"/>
+	</field>
+	<field name="RealWorkSal" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="RealWorkSal"/>
+		<property name="com.jaspersoft.studio.field.name" value="RealWorkSal"/>
+	</field>
+	<field name="FeePerHour" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="FeePerHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="FeePerHour"/>
+	</field>
+	<field name="WorkHour" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="WorkHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="WorkHour"/>
+	</field>
+	<field name="WorkSalary" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="WorkSalary"/>
+		<property name="com.jaspersoft.studio.field.name" value="WorkSalary"/>
+	</field>
+	<field name="WorkProbAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="WorkProbAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="WorkProbAmt"/>
+	</field>
+	<field name="AdjustMonth" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="AdjustMonth"/>
+		<property name="com.jaspersoft.studio.field.name" value="AdjustMonth"/>
+	</field>
+	<field name="AdjustDay" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="AdjustDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="AdjustDay"/>
+	</field>
+	<field name="DeductMonth" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="DeductMonth"/>
+		<property name="com.jaspersoft.studio.field.name" value="DeductMonth"/>
+	</field>
+	<field name="DeductDay" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="DeductDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="DeductDay"/>
+	</field>
+	<field name="PLeaveDay" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PLeaveDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="PLeaveDay"/>
+	</field>
+	<field name="PLeaveHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="PLeaveHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="PLeaveHour"/>
+	</field>
+	<field name="ULeaveDay" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ULeaveDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="ULeaveDay"/>
+	</field>
+	<field name="ULeaveHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ULeaveHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="ULeaveHour"/>
+	</field>
+	<field name="ALLeaveDay" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ALLeaveDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="ALLeaveDay"/>
+	</field>
+	<field name="ALLeaveHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ALLeaveHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="ALLeaveHour"/>
+	</field>
+	<field name="SLLeaveDay" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SLLeaveDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="SLLeaveDay"/>
+	</field>
+	<field name="SLLeaveHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="SLLeaveHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="SLLeaveHour"/>
+	</field>
+	<field name="MLLeaveDay" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MLLeaveDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="MLLeaveDay"/>
+	</field>
+	<field name="MLLeaveHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="MLLeaveHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="MLLeaveHour"/>
+	</field>
+	<field name="CLLeaveDay" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="CLLeaveDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="CLLeaveDay"/>
+	</field>
+	<field name="CLLeaveHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="CLLeaveHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="CLLeaveHour"/>
+	</field>
+	<field name="OLLeaveDay" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OLLeaveDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="OLLeaveDay"/>
+	</field>
+	<field name="OLLeaveHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="OLLeaveHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="OLLeaveHour"/>
+	</field>
+	<field name="DLLeaveDay" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="DLLeaveDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="DLLeaveDay"/>
+	</field>
+	<field name="DLLeaveHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="DLLeaveHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="DLLeaveHour"/>
+	</field>
+	<field name="ALLeaveAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ALLeaveAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="ALLeaveAmt"/>
+	</field>
+	<field name="SLLeaveAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SLLeaveAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="SLLeaveAmt"/>
+	</field>
+	<field name="MLLeaveAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MLLeaveAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="MLLeaveAmt"/>
+	</field>
+	<field name="CLLeaveAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="CLLeaveAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="CLLeaveAmt"/>
+	</field>
+	<field name="OLLeaveAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OLLeaveAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="OLLeaveAmt"/>
+	</field>
+	<field name="DLLeaveAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="DLLeaveAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="DLLeaveAmt"/>
+	</field>
+	<field name="NOTHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="NOTHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="NOTHour"/>
+	</field>
+	<field name="HOTHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="HOTHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="HOTHour"/>
+	</field>
+	<field name="DOTHour" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="DOTHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="DOTHour"/>
+	</field>
+	<field name="WOTHour" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="WOTHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="WOTHour"/>
+	</field>
+	<field name="OOTHour" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OOTHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="OOTHour"/>
+	</field>
+	<field name="OTHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="OTHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="OTHour"/>
+	</field>
+	<field name="ExcOOTHour" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ExcOOTHour"/>
+		<property name="com.jaspersoft.studio.field.name" value="ExcOOTHour"/>
+	</field>
+	<field name="NOTFee" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="NOTFee"/>
+		<property name="com.jaspersoft.studio.field.name" value="NOTFee"/>
+	</field>
+	<field name="HOTFee" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="HOTFee"/>
+		<property name="com.jaspersoft.studio.field.name" value="HOTFee"/>
+	</field>
+	<field name="DOTFee" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="DOTFee"/>
+		<property name="com.jaspersoft.studio.field.name" value="DOTFee"/>
+	</field>
+	<field name="WOTFee" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="WOTFee"/>
+		<property name="com.jaspersoft.studio.field.name" value="WOTFee"/>
+	</field>
+	<field name="OOTFee" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OOTFee"/>
+		<property name="com.jaspersoft.studio.field.name" value="OOTFee"/>
+	</field>
+	<field name="OTFee" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OTFee"/>
+		<property name="com.jaspersoft.studio.field.name" value="OTFee"/>
+	</field>
+	<field name="ExcOOTFee" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ExcOOTFee"/>
+		<property name="com.jaspersoft.studio.field.name" value="ExcOOTFee"/>
+	</field>
+	<field name="Wages" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Wages"/>
+		<property name="com.jaspersoft.studio.field.name" value="Wages"/>
+	</field>
+	<field name="LayoffAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="LayoffAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="LayoffAmt"/>
+	</field>
+	<field name="EndProjAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="EndProjAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="EndProjAmt"/>
+	</field>
+	<field name="EffectDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="EffectDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="EffectDate"/>
+	</field>
+	<field name="OldWages" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OldWages"/>
+		<property name="com.jaspersoft.studio.field.name" value="OldWages"/>
+	</field>
+	<field name="OverTime" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OverTime"/>
+		<property name="com.jaspersoft.studio.field.name" value="OverTime"/>
+	</field>
+	<field name="Health" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Health"/>
+		<property name="com.jaspersoft.studio.field.name" value="Health"/>
+	</field>
+	<field name="HealthDeduct" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="HealthDeduct"/>
+		<property name="com.jaspersoft.studio.field.name" value="HealthDeduct"/>
+	</field>
+	<field name="HealthAdjust" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="HealthAdjust"/>
+		<property name="com.jaspersoft.studio.field.name" value="HealthAdjust"/>
+	</field>
+	<field name="HealthAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="HealthAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="HealthAmt"/>
+	</field>
+	<field name="Misce" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Misce"/>
+		<property name="com.jaspersoft.studio.field.name" value="Misce"/>
+	</field>
+	<field name="MisceDeduct" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MisceDeduct"/>
+		<property name="com.jaspersoft.studio.field.name" value="MisceDeduct"/>
+	</field>
+	<field name="MisceAdjust" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MisceAdjust"/>
+		<property name="com.jaspersoft.studio.field.name" value="MisceAdjust"/>
+	</field>
+	<field name="MisceAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MisceAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="MisceAmt"/>
+	</field>
+	<field name="AdjustAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="AdjustAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="AdjustAmt"/>
+	</field>
+	<field name="DeductAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="DeductAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="DeductAmt"/>
+	</field>
+	<field name="Bonus" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Bonus"/>
+		<property name="com.jaspersoft.studio.field.name" value="Bonus"/>
+	</field>
+	<field name="Relocation" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Relocation"/>
+		<property name="com.jaspersoft.studio.field.name" value="Relocation"/>
+	</field>
+	<field name="RelocationR" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="RelocationR"/>
+		<property name="com.jaspersoft.studio.field.name" value="RelocationR"/>
+	</field>
+	<field name="Adjustment" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Adjustment"/>
+		<property name="com.jaspersoft.studio.field.name" value="Adjustment"/>
+	</field>
+	<field name="Deduction" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Deduction"/>
+		<property name="com.jaspersoft.studio.field.name" value="Deduction"/>
+	</field>
+	<field name="GrossSal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="GrossSal"/>
+		<property name="com.jaspersoft.studio.field.name" value="GrossSal"/>
+	</field>
+	<field name="TaxableSal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="TaxableSal"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxableSal"/>
+	</field>
+	<field name="TaxR" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="TaxR"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxR"/>
+	</field>
+	<field name="Tax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Tax"/>
+		<property name="com.jaspersoft.studio.field.name" value="Tax"/>
+	</field>
+	<field name="RelTax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="RelTax"/>
+		<property name="com.jaspersoft.studio.field.name" value="RelTax"/>
+	</field>
+	<field name="RelTaxR" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="RelTaxR"/>
+		<property name="com.jaspersoft.studio.field.name" value="RelTaxR"/>
+	</field>
+	<field name="TaxAll" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="TaxAll"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxAll"/>
+	</field>
+	<field name="TaxAllR" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="TaxAllR"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxAllR"/>
+	</field>
+	<field name="NetSalary" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="NetSalary"/>
+		<property name="com.jaspersoft.studio.field.name" value="NetSalary"/>
+	</field>
+	<field name="Rounded" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Rounded"/>
+		<property name="com.jaspersoft.studio.field.name" value="Rounded"/>
+	</field>
+	<field name="NetSalInt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="NetSalInt"/>
+		<property name="com.jaspersoft.studio.field.name" value="NetSalInt"/>
+	</field>
+	<field name="NetSalDec" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="NetSalDec"/>
+		<property name="com.jaspersoft.studio.field.name" value="NetSalDec"/>
+	</field>
+	<field name="NetSalDecR" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="NetSalDecR"/>
+		<property name="com.jaspersoft.studio.field.name" value="NetSalDecR"/>
+	</field>
+	<field name="Notes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Notes"/>
+		<property name="com.jaspersoft.studio.field.name" value="Notes"/>
+	</field>
+	<field name="Exchange" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="Exchange"/>
+		<property name="com.jaspersoft.studio.field.name" value="Exchange"/>
+	</field>
+	<field name="FringeRate" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="FringeRate"/>
+		<property name="com.jaspersoft.studio.field.name" value="FringeRate"/>
+	</field>
+	<field name="GrossSalR" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="GrossSalR"/>
+		<property name="com.jaspersoft.studio.field.name" value="GrossSalR"/>
+	</field>
+	<field name="ONDependent" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="ONDependent"/>
+		<property name="com.jaspersoft.studio.field.name" value="ONDependent"/>
+	</field>
+	<field name="NDependent" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="NDependent"/>
+		<property name="com.jaspersoft.studio.field.name" value="NDependent"/>
+	</field>
+	<field name="DependentR" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="DependentR"/>
+		<property name="com.jaspersoft.studio.field.name" value="DependentR"/>
+	</field>
+	<field name="TaxableSalR" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="TaxableSalR"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxableSalR"/>
+	</field>
+	<field name="SalAfterTax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SalAfterTax"/>
+		<property name="com.jaspersoft.studio.field.name" value="SalAfterTax"/>
+	</field>
+	<field name="SalAfterTaxR" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SalAfterTaxR"/>
+		<property name="com.jaspersoft.studio.field.name" value="SalAfterTaxR"/>
+	</field>
+	<field name="TaxLevel" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="TaxLevel"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxLevel"/>
+	</field>
+	<field name="TaxRate" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="TaxRate"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxRate"/>
+	</field>
+	<field name="Child" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Child"/>
+		<property name="com.jaspersoft.studio.field.name" value="Child"/>
+	</field>
+	<field name="Spouse" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Spouse"/>
+		<property name="com.jaspersoft.studio.field.name" value="Spouse"/>
+	</field>
+	<field name="FullName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="FullName"/>
+		<property name="com.jaspersoft.studio.field.name" value="FullName"/>
+	</field>
+	<field name="NameKhmer" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NameKhmer"/>
+		<property name="com.jaspersoft.studio.field.name" value="NameKhmer"/>
+	</field>
+	<field name="NameKhmerU" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NameKhmerU"/>
+		<property name="com.jaspersoft.studio.field.name" value="NameKhmerU"/>
+	</field>
+	<field name="Fname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Fname"/>
+		<property name="com.jaspersoft.studio.field.name" value="Fname"/>
+	</field>
+	<field name="Lname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Lname"/>
+		<property name="com.jaspersoft.studio.field.name" value="Lname"/>
+	</field>
+	<field name="TitleID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TitleID"/>
+	</field>
+	<field name="Title" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Title"/>
+	</field>
+	<field name="TitleK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TitleK"/>
+	</field>
+	<field name="Status" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="Status"/>
+		<property name="com.jaspersoft.studio.field.name" value="Status"/>
+	</field>
+	<field name="ParameterID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ParameterID"/>
+		<property name="com.jaspersoft.studio.field.name" value="ParameterID"/>
+	</field>
+	<field name="PrintDate" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrintDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrintDate"/>
+	</field>
+	<field name="CStatus" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="CStatus"/>
+		<property name="com.jaspersoft.studio.field.name" value="CStatus"/>
+	</field>
+	<field name="ForPeriod" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ForPeriod"/>
+		<property name="com.jaspersoft.studio.field.name" value="ForPeriod"/>
+	</field>
+	<field name="Grade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Grade"/>
+		<property name="com.jaspersoft.studio.field.name" value="Grade"/>
+	</field>
+	<field name="PreDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="PreDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="PreDate"/>
+	</field>
+	<field name="PreName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PreName"/>
+		<property name="com.jaspersoft.studio.field.name" value="PreName"/>
+	</field>
+	<field name="PreTitle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PreTitle"/>
+		<property name="com.jaspersoft.studio.field.name" value="PreTitle"/>
+	</field>
+	<field name="RevName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="RevName"/>
+		<property name="com.jaspersoft.studio.field.name" value="RevName"/>
+	</field>
+	<field name="RevTitle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="RevTitle"/>
+		<property name="com.jaspersoft.studio.field.name" value="RevTitle"/>
+	</field>
+	<field name="Rev1Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Rev1Name"/>
+		<property name="com.jaspersoft.studio.field.name" value="Rev1Name"/>
+	</field>
+	<field name="Rev1Title" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Rev1Title"/>
+		<property name="com.jaspersoft.studio.field.name" value="Rev1Title"/>
+	</field>
+	<field name="App1Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="App1Name"/>
+		<property name="com.jaspersoft.studio.field.name" value="App1Name"/>
+	</field>
+	<field name="App1Title" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="App1Title"/>
+		<property name="com.jaspersoft.studio.field.name" value="App1Title"/>
+	</field>
+	<field name="App2Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="App2Name"/>
+		<property name="com.jaspersoft.studio.field.name" value="App2Name"/>
+	</field>
+	<field name="App2Title" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="App2Title"/>
+		<property name="com.jaspersoft.studio.field.name" value="App2Title"/>
+	</field>
+	<field name="OfficeID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="OfficeID"/>
+		<property name="com.jaspersoft.studio.field.name" value="OfficeID"/>
+	</field>
+	<field name="OfficeName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="OfficeName"/>
+		<property name="com.jaspersoft.studio.field.name" value="OfficeName"/>
+	</field>
+	<field name="OfficeNameK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="OfficeNameK"/>
+		<property name="com.jaspersoft.studio.field.name" value="OfficeNameK"/>
+	</field>
+	<field name="OfficeAccount" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="OfficeAccount"/>
+		<property name="com.jaspersoft.studio.field.name" value="OfficeAccount"/>
+	</field>
+	<field name="OfficeRange" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="OfficeRange"/>
+		<property name="com.jaspersoft.studio.field.name" value="OfficeRange"/>
+	</field>
+	<field name="OfficeShort" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="OfficeShort"/>
+		<property name="com.jaspersoft.studio.field.name" value="OfficeShort"/>
+	</field>
+	<field name="OfficeTypeCode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="OfficeTypeCode"/>
+		<property name="com.jaspersoft.studio.field.name" value="OfficeTypeCode"/>
+	</field>
+	<field name="DeptID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="DeptID"/>
+		<property name="com.jaspersoft.studio.field.name" value="DeptID"/>
+	</field>
+	<field name="DeptName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="DeptName"/>
+		<property name="com.jaspersoft.studio.field.name" value="DeptName"/>
+	</field>
+	<field name="DeptNameK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="DeptNameK"/>
+		<property name="com.jaspersoft.studio.field.name" value="DeptNameK"/>
+	</field>
+	<field name="DeptNameU" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="DeptNameU"/>
+		<property name="com.jaspersoft.studio.field.name" value="DeptNameU"/>
+	</field>
+	<field name="DeptAccount" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="DeptAccount"/>
+		<property name="com.jaspersoft.studio.field.name" value="DeptAccount"/>
+	</field>
+	<field name="DeptRange" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="DeptRange"/>
+		<property name="com.jaspersoft.studio.field.name" value="DeptRange"/>
+	</field>
+	<field name="DeptShort" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="DeptShort"/>
+		<property name="com.jaspersoft.studio.field.name" value="DeptShort"/>
+	</field>
+	<field name="ProjID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ProjID"/>
+		<property name="com.jaspersoft.studio.field.name" value="ProjID"/>
+	</field>
+	<field name="ProjName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ProjName"/>
+		<property name="com.jaspersoft.studio.field.name" value="ProjName"/>
+	</field>
+	<field name="ProjNameK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ProjNameK"/>
+		<property name="com.jaspersoft.studio.field.name" value="ProjNameK"/>
+	</field>
+	<field name="ProjRange" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="ProjRange"/>
+		<property name="com.jaspersoft.studio.field.name" value="ProjRange"/>
+	</field>
+	<field name="TeamID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TeamID"/>
+		<property name="com.jaspersoft.studio.field.name" value="TeamID"/>
+	</field>
+	<field name="TeamName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TeamName"/>
+		<property name="com.jaspersoft.studio.field.name" value="TeamName"/>
+	</field>
+	<field name="TeamNameK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TeamNameK"/>
+		<property name="com.jaspersoft.studio.field.name" value="TeamNameK"/>
+	</field>
+	<field name="LocID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="LocID"/>
+		<property name="com.jaspersoft.studio.field.name" value="LocID"/>
+	</field>
+	<field name="LocName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="LocName"/>
+		<property name="com.jaspersoft.studio.field.name" value="LocName"/>
+	</field>
+	<field name="LocRange" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="LocRange"/>
+		<property name="com.jaspersoft.studio.field.name" value="LocRange"/>
+	</field>
+	<field name="LocAccount" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="LocAccount"/>
+		<property name="com.jaspersoft.studio.field.name" value="LocAccount"/>
+	</field>
+	<field name="LocShort" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="LocShort"/>
+		<property name="com.jaspersoft.studio.field.name" value="LocShort"/>
+	</field>
+	<field name="Section" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Section"/>
+		<property name="com.jaspersoft.studio.field.name" value="Section"/>
+	</field>
+	<field name="JobTitleID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="JobTitleID"/>
+		<property name="com.jaspersoft.studio.field.name" value="JobTitleID"/>
+	</field>
+	<field name="JobTitle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="JobTitle"/>
+		<property name="com.jaspersoft.studio.field.name" value="JobTitle"/>
+	</field>
+	<field name="JobTitleK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="JobTitleK"/>
+		<property name="com.jaspersoft.studio.field.name" value="JobTitleK"/>
+	</field>
+	<field name="JobTitleU" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="JobTitleU"/>
+		<property name="com.jaspersoft.studio.field.name" value="JobTitleU"/>
+	</field>
+	<field name="JobTitleRange" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="JobTitleRange"/>
+		<property name="com.jaspersoft.studio.field.name" value="JobTitleRange"/>
+	</field>
+	<field name="GenderID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GenderID"/>
+		<property name="com.jaspersoft.studio.field.name" value="GenderID"/>
+	</field>
+	<field name="Gender" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Gender"/>
+		<property name="com.jaspersoft.studio.field.name" value="Gender"/>
+	</field>
+	<field name="GenderK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GenderK"/>
+		<property name="com.jaspersoft.studio.field.name" value="GenderK"/>
+	</field>
+	<field name="StartDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="StartDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="StartDate"/>
+	</field>
+	<field name="EndDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="EndDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="EndDate"/>
+	</field>
+	<field name="Advance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Advance"/>
+		<property name="com.jaspersoft.studio.field.name" value="Advance"/>
+	</field>
+	<field name="AdvancePay" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="AdvancePay"/>
+		<property name="com.jaspersoft.studio.field.name" value="AdvancePay"/>
+	</field>
+	<field name="VoucherNo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="VoucherNo"/>
+		<property name="com.jaspersoft.studio.field.name" value="VoucherNo"/>
+	</field>
+	<field name="ConsRate" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ConsRate"/>
+		<property name="com.jaspersoft.studio.field.name" value="ConsRate"/>
+	</field>
+	<field name="ConsTax" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ConsTax"/>
+		<property name="com.jaspersoft.studio.field.name" value="ConsTax"/>
+	</field>
+	<field name="DonorID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="DonorID"/>
+		<property name="com.jaspersoft.studio.field.name" value="DonorID"/>
+	</field>
+	<field name="DonorName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="DonorName"/>
+		<property name="com.jaspersoft.studio.field.name" value="DonorName"/>
+	</field>
+	<field name="DonorAccount" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="DonorAccount"/>
+		<property name="com.jaspersoft.studio.field.name" value="DonorAccount"/>
+	</field>
+	<field name="FundName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="FundName"/>
+		<property name="com.jaspersoft.studio.field.name" value="FundName"/>
+	</field>
+	<field name="FundAccount" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="FundAccount"/>
+		<property name="com.jaspersoft.studio.field.name" value="FundAccount"/>
+	</field>
+	<field name="PerEmp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PerEmp"/>
+		<property name="com.jaspersoft.studio.field.name" value="PerEmp"/>
+	</field>
+	<field name="EmpType" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="EmpType"/>
+		<property name="com.jaspersoft.studio.field.name" value="EmpType"/>
+	</field>
+	<field name="FundID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="FundID"/>
+		<property name="com.jaspersoft.studio.field.name" value="FundID"/>
+	</field>
+	<field name="EmpCatID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="EmpCatID"/>
+		<property name="com.jaspersoft.studio.field.name" value="EmpCatID"/>
+	</field>
+	<field name="GradeID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GradeID"/>
+		<property name="com.jaspersoft.studio.field.name" value="GradeID"/>
+	</field>
+	<field name="HiredDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="HiredDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="HiredDate"/>
+	</field>
+	<field name="T0" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="T0"/>
+		<property name="com.jaspersoft.studio.field.name" value="T0"/>
+	</field>
+	<field name="T1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="T1"/>
+		<property name="com.jaspersoft.studio.field.name" value="T1"/>
+	</field>
+	<field name="T2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="T2"/>
+		<property name="com.jaspersoft.studio.field.name" value="T2"/>
+	</field>
+	<field name="T3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="T3"/>
+		<property name="com.jaspersoft.studio.field.name" value="T3"/>
+	</field>
+	<field name="T4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="T4"/>
+		<property name="com.jaspersoft.studio.field.name" value="T4"/>
+	</field>
+	<field name="T5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="T5"/>
+		<property name="com.jaspersoft.studio.field.name" value="T5"/>
+	</field>
+	<field name="T6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="T6"/>
+		<property name="com.jaspersoft.studio.field.name" value="T6"/>
+	</field>
+	<field name="T7" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="T7"/>
+		<property name="com.jaspersoft.studio.field.name" value="T7"/>
+	</field>
+	<field name="T8" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="T8"/>
+		<property name="com.jaspersoft.studio.field.name" value="T8"/>
+	</field>
+	<field name="T9" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="T9"/>
+		<property name="com.jaspersoft.studio.field.name" value="T9"/>
+	</field>
+	<field name="Severance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Severance"/>
+		<property name="com.jaspersoft.studio.field.name" value="Severance"/>
+	</field>
+	<field name="Ext" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Ext"/>
+		<property name="com.jaspersoft.studio.field.name" value="Ext"/>
+	</field>
+	<field name="SIDCard" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="SIDCard"/>
+		<property name="com.jaspersoft.studio.field.name" value="SIDCard"/>
+	</field>
+	<field name="STD_ID_HR" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="STD_ID_HR"/>
+		<property name="com.jaspersoft.studio.field.name" value="STD_ID_HR"/>
+	</field>
+	<field name="QuartileID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="QuartileID"/>
+		<property name="com.jaspersoft.studio.field.name" value="QuartileID"/>
+	</field>
+	<field name="Quartile" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Quartile"/>
+		<property name="com.jaspersoft.studio.field.name" value="Quartile"/>
+	</field>
+	<field name="Empdate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="Empdate"/>
+		<property name="com.jaspersoft.studio.field.name" value="Empdate"/>
+	</field>
+	<field name="SupState" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="SupState"/>
+		<property name="com.jaspersoft.studio.field.name" value="SupState"/>
+	</field>
+	<field name="PayType" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PayType"/>
+		<property name="com.jaspersoft.studio.field.name" value="PayType"/>
+	</field>
+	<field name="AccBranchID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AccBranchID"/>
+		<property name="com.jaspersoft.studio.field.name" value="AccBranchID"/>
+	</field>
+	<field name="OAccBranchID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="OAccBranchID"/>
+		<property name="com.jaspersoft.studio.field.name" value="OAccBranchID"/>
+	</field>
+	<field name="SAccBranchID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="SAccBranchID"/>
+		<property name="com.jaspersoft.studio.field.name" value="SAccBranchID"/>
+	</field>
+	<field name="AccountID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AccountID"/>
+		<property name="com.jaspersoft.studio.field.name" value="AccountID"/>
+	</field>
+	<field name="OAccountID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="OAccountID"/>
+		<property name="com.jaspersoft.studio.field.name" value="OAccountID"/>
+	</field>
+	<field name="SAccountID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="SAccountID"/>
+		<property name="com.jaspersoft.studio.field.name" value="SAccountID"/>
+	</field>
+	<field name="AccName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AccName"/>
+		<property name="com.jaspersoft.studio.field.name" value="AccName"/>
+	</field>
+	<field name="OldHealth" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OldHealth"/>
+		<property name="com.jaspersoft.studio.field.name" value="OldHealth"/>
+	</field>
+	<field name="CNotes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="CNotes"/>
+		<property name="com.jaspersoft.studio.field.name" value="CNotes"/>
+	</field>
+	<field name="EmpCategory" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="EmpCategory"/>
+		<property name="com.jaspersoft.studio.field.name" value="EmpCategory"/>
+	</field>
+	<field name="BBalBonus" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="BBalBonus"/>
+		<property name="com.jaspersoft.studio.field.name" value="BBalBonus"/>
+	</field>
+	<field name="AccrueBonus" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="AccrueBonus"/>
+		<property name="com.jaspersoft.studio.field.name" value="AccrueBonus"/>
+	</field>
+	<field name="EBalBonus" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="EBalBonus"/>
+		<property name="com.jaspersoft.studio.field.name" value="EBalBonus"/>
+	</field>
+	<field name="BBalSeverance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="BBalSeverance"/>
+		<property name="com.jaspersoft.studio.field.name" value="BBalSeverance"/>
+	</field>
+	<field name="AccrueSeverance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="AccrueSeverance"/>
+		<property name="com.jaspersoft.studio.field.name" value="AccrueSeverance"/>
+	</field>
+	<field name="EBalSeverance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="EBalSeverance"/>
+		<property name="com.jaspersoft.studio.field.name" value="EBalSeverance"/>
+	</field>
+	<field name="PensionBBal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PensionBBal"/>
+		<property name="com.jaspersoft.studio.field.name" value="PensionBBal"/>
+	</field>
+	<field name="PensionAcr" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PensionAcr"/>
+		<property name="com.jaspersoft.studio.field.name" value="PensionAcr"/>
+	</field>
+	<field name="PensionEBal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PensionEBal"/>
+		<property name="com.jaspersoft.studio.field.name" value="PensionEBal"/>
+	</field>
+	<field name="YearService" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="YearService"/>
+		<property name="com.jaspersoft.studio.field.name" value="YearService"/>
+	</field>
+	<field name="MonthService" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="MonthService"/>
+		<property name="com.jaspersoft.studio.field.name" value="MonthService"/>
+	</field>
+	<field name="DayService" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="DayService"/>
+		<property name="com.jaspersoft.studio.field.name" value="DayService"/>
+	</field>
+	<field name="LengthService" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="LengthService"/>
+		<property name="com.jaspersoft.studio.field.name" value="LengthService"/>
+	</field>
+	<field name="LastLeaveAL" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="LastLeaveAL"/>
+		<property name="com.jaspersoft.studio.field.name" value="LastLeaveAL"/>
+	</field>
+	<field name="CurrentLeaveAL" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="CurrentLeaveAL"/>
+		<property name="com.jaspersoft.studio.field.name" value="CurrentLeaveAL"/>
+	</field>
+	<field name="LastAmountAL" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="LastAmountAL"/>
+		<property name="com.jaspersoft.studio.field.name" value="LastAmountAL"/>
+	</field>
+	<field name="CurrentAmountAL" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="CurrentAmountAL"/>
+		<property name="com.jaspersoft.studio.field.name" value="CurrentAmountAL"/>
+	</field>
+	<field name="AdjustmentAL" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="AdjustmentAL"/>
+		<property name="com.jaspersoft.studio.field.name" value="AdjustmentAL"/>
+	</field>
+	<field name="LastLeaveSL" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="LastLeaveSL"/>
+		<property name="com.jaspersoft.studio.field.name" value="LastLeaveSL"/>
+	</field>
+	<field name="CurrentLeaveSL" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="CurrentLeaveSL"/>
+		<property name="com.jaspersoft.studio.field.name" value="CurrentLeaveSL"/>
+	</field>
+	<field name="LastAmountSL" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="LastAmountSL"/>
+		<property name="com.jaspersoft.studio.field.name" value="LastAmountSL"/>
+	</field>
+	<field name="CurrentAmountSL" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="CurrentAmountSL"/>
+		<property name="com.jaspersoft.studio.field.name" value="CurrentAmountSL"/>
+	</field>
+	<field name="AdjustmentSL" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="AdjustmentSL"/>
+		<property name="com.jaspersoft.studio.field.name" value="AdjustmentSL"/>
+	</field>
+	<field name="AllowPayroll" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowPayroll"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowPayroll"/>
+	</field>
+	<field name="AllowPF" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowPF"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowPF"/>
+	</field>
+	<field name="AllowBonus" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowBonus"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowBonus"/>
+	</field>
+	<field name="AllowHealth" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowHealth"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowHealth"/>
+	</field>
+	<field name="AllowInsurance" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowInsurance"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowInsurance"/>
+	</field>
+	<field name="AllowTax" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowTax"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowTax"/>
+	</field>
+	<field name="AllowLeave" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowLeave"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowLeave"/>
+	</field>
+	<field name="AllowSeverance" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowSeverance"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowSeverance"/>
+	</field>
+	<field name="AllowNSA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowNSA"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowNSA"/>
+	</field>
+	<field name="BonusExt" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BonusExt"/>
+		<property name="com.jaspersoft.studio.field.name" value="BonusExt"/>
+	</field>
+	<field name="SeveranceExt" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="SeveranceExt"/>
+		<property name="com.jaspersoft.studio.field.name" value="SeveranceExt"/>
+	</field>
+	<field name="LeaveExt" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="LeaveExt"/>
+		<property name="com.jaspersoft.studio.field.name" value="LeaveExt"/>
+	</field>
+	<field name="InsuranceExt" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="InsuranceExt"/>
+		<property name="com.jaspersoft.studio.field.name" value="InsuranceExt"/>
+	</field>
+	<field name="TaxExt" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TaxExt"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxExt"/>
+	</field>
+	<field name="SalaryExt" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="SalaryExt"/>
+		<property name="com.jaspersoft.studio.field.name" value="SalaryExt"/>
+	</field>
+	<field name="WorkFlag" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="WorkFlag"/>
+		<property name="com.jaspersoft.studio.field.name" value="WorkFlag"/>
+	</field>
+	<field name="IsCouple" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="IsCouple"/>
+		<property name="com.jaspersoft.studio.field.name" value="IsCouple"/>
+	</field>
+	<field name="PrevPeriodID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevPeriodID"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevPeriodID"/>
+	</field>
+	<field name="TaxPayee" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TaxPayee"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxPayee"/>
+	</field>
+	<field name="TaxAddress" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TaxAddress"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxAddress"/>
+	</field>
+	<field name="TaxDesc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TaxDesc"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxDesc"/>
+	</field>
+	<field name="WageAdjust" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="WageAdjust"/>
+		<property name="com.jaspersoft.studio.field.name" value="WageAdjust"/>
+	</field>
+	<field name="WageDeduct" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="WageDeduct"/>
+		<property name="com.jaspersoft.studio.field.name" value="WageDeduct"/>
+	</field>
+	<field name="Active" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="Active"/>
+		<property name="com.jaspersoft.studio.field.name" value="Active"/>
+	</field>
+	<field name="LocChildNPA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="LocChildNPA"/>
+		<property name="com.jaspersoft.studio.field.name" value="LocChildNPA"/>
+	</field>
+	<field name="IsPay" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="IsPay"/>
+		<property name="com.jaspersoft.studio.field.name" value="IsPay"/>
+	</field>
+	<field name="IsTax" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="IsTax"/>
+		<property name="com.jaspersoft.studio.field.name" value="IsTax"/>
+	</field>
+	<field name="IsFinal" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="IsFinal"/>
+		<property name="com.jaspersoft.studio.field.name" value="IsFinal"/>
+	</field>
+	<field name="OldNetSal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OldNetSal"/>
+		<property name="com.jaspersoft.studio.field.name" value="OldNetSal"/>
+	</field>
+	<field name="Rental" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Rental"/>
+		<property name="com.jaspersoft.studio.field.name" value="Rental"/>
+	</field>
+	<field name="Training" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Training"/>
+		<property name="com.jaspersoft.studio.field.name" value="Training"/>
+	</field>
+	<field name="MerritAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MerritAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="MerritAmt"/>
+	</field>
+	<field name="SalDeductAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SalDeductAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="SalDeductAmt"/>
+	</field>
+	<field name="Benefit" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Benefit"/>
+		<property name="com.jaspersoft.studio.field.name" value="Benefit"/>
+	</field>
+	<field name="BenefitTax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="BenefitTax"/>
+		<property name="com.jaspersoft.studio.field.name" value="BenefitTax"/>
+	</field>
+	<field name="BenefitTaxR" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="BenefitTaxR"/>
+		<property name="com.jaspersoft.studio.field.name" value="BenefitTaxR"/>
+	</field>
+	<field name="BenefitNet" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="BenefitNet"/>
+		<property name="com.jaspersoft.studio.field.name" value="BenefitNet"/>
+	</field>
+	<field name="RentalRate" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="RentalRate"/>
+		<property name="com.jaspersoft.studio.field.name" value="RentalRate"/>
+	</field>
+	<field name="RentalTax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="RentalTax"/>
+		<property name="com.jaspersoft.studio.field.name" value="RentalTax"/>
+	</field>
+	<field name="OBonus" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OBonus"/>
+		<property name="com.jaspersoft.studio.field.name" value="OBonus"/>
+	</field>
+	<field name="FBonus" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="FBonus"/>
+		<property name="com.jaspersoft.studio.field.name" value="FBonus"/>
+	</field>
+	<field name="UALeave" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="UALeave"/>
+		<property name="com.jaspersoft.studio.field.name" value="UALeave"/>
+	</field>
+	<field name="UALeaveBal" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="UALeaveBal"/>
+		<property name="com.jaspersoft.studio.field.name" value="UALeaveBal"/>
+	</field>
+	<field name="UALeaveMax" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="UALeaveMax"/>
+		<property name="com.jaspersoft.studio.field.name" value="UALeaveMax"/>
+	</field>
+	<field name="UALeaveCon" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="UALeaveCon"/>
+		<property name="com.jaspersoft.studio.field.name" value="UALeaveCon"/>
+	</field>
+	<field name="UALeaveSal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="UALeaveSal"/>
+		<property name="com.jaspersoft.studio.field.name" value="UALeaveSal"/>
+	</field>
+	<field name="ABonus" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ABonus"/>
+		<property name="com.jaspersoft.studio.field.name" value="ABonus"/>
+	</field>
+	<field name="ABonusRate" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ABonusRate"/>
+		<property name="com.jaspersoft.studio.field.name" value="ABonusRate"/>
+	</field>
+	<field name="ABonusSal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ABonusSal"/>
+		<property name="com.jaspersoft.studio.field.name" value="ABonusSal"/>
+	</field>
+	<field name="ABonusMonth" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="ABonusMonth"/>
+		<property name="com.jaspersoft.studio.field.name" value="ABonusMonth"/>
+	</field>
+	<field name="NSADeduct" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="NSADeduct"/>
+		<property name="com.jaspersoft.studio.field.name" value="NSADeduct"/>
+	</field>
+	<field name="NSAPayAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="NSAPayAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="NSAPayAmt"/>
+	</field>
+	<field name="Insurance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Insurance"/>
+		<property name="com.jaspersoft.studio.field.name" value="Insurance"/>
+	</field>
+	<field name="VarWages" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="VarWages"/>
+		<property name="com.jaspersoft.studio.field.name" value="VarWages"/>
+	</field>
+	<field name="BonusDedPer" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="BonusDedPer"/>
+		<property name="com.jaspersoft.studio.field.name" value="BonusDedPer"/>
+	</field>
+	<field name="BonusMonth" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="BonusMonth"/>
+		<property name="com.jaspersoft.studio.field.name" value="BonusMonth"/>
+	</field>
+	<field name="BonusDay" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="BonusDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="BonusDay"/>
+	</field>
+	<field name="CreatedDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="CreatedDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="CreatedDate"/>
+	</field>
+	<field name="YearNum" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="YearNum"/>
+		<property name="com.jaspersoft.studio.field.name" value="YearNum"/>
+	</field>
+	<field name="MonthName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="MonthName"/>
+		<property name="com.jaspersoft.studio.field.name" value="MonthName"/>
+	</field>
+	<field name="MonthNameK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="MonthNameK"/>
+		<property name="com.jaspersoft.studio.field.name" value="MonthNameK"/>
+	</field>
+	<field name="ABonusPeriodID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ABonusPeriodID"/>
+		<property name="com.jaspersoft.studio.field.name" value="ABonusPeriodID"/>
+	</field>
+	<field name="ABonusStart" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="ABonusStart"/>
+		<property name="com.jaspersoft.studio.field.name" value="ABonusStart"/>
+	</field>
+	<field name="ABonusEnd" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="ABonusEnd"/>
+		<property name="com.jaspersoft.studio.field.name" value="ABonusEnd"/>
+	</field>
+	<field name="AnnualMonth" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="AnnualMonth"/>
+		<property name="com.jaspersoft.studio.field.name" value="AnnualMonth"/>
+	</field>
+	<field name="AnnualDay" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="AnnualDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="AnnualDay"/>
+	</field>
+	<field name="EmpPayType" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="EmpPayType"/>
+		<property name="com.jaspersoft.studio.field.name" value="EmpPayType"/>
+	</field>
+	<field name="CalEffDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="CalEffDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="CalEffDate"/>
+	</field>
+	<field name="EmpStatusID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="EmpStatusID"/>
+		<property name="com.jaspersoft.studio.field.name" value="EmpStatusID"/>
+	</field>
+	<field name="PaidFlag" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PaidFlag"/>
+		<property name="com.jaspersoft.studio.field.name" value="PaidFlag"/>
+	</field>
+	<field name="LeaveDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="LeaveDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="LeaveDate"/>
+	</field>
+	<field name="BankCode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BankCode"/>
+		<property name="com.jaspersoft.studio.field.name" value="BankCode"/>
+	</field>
+	<field name="EmpABonusRate" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="EmpABonusRate"/>
+		<property name="com.jaspersoft.studio.field.name" value="EmpABonusRate"/>
+	</field>
+	<field name="ReviewDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="ReviewDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="ReviewDate"/>
+	</field>
+	<field name="GLAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLAcc"/>
+	</field>
+	<field name="GLWageAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLWageAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLWageAcc"/>
+	</field>
+	<field name="GLHealthAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLHealthAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLHealthAcc"/>
+	</field>
+	<field name="GLOverTimeAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLOverTimeAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLOverTimeAcc"/>
+	</field>
+	<field name="GLRelocationAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLRelocationAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLRelocationAcc"/>
+	</field>
+	<field name="GLMisceAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLMisceAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLMisceAcc"/>
+	</field>
+	<field name="GLBonusAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLBonusAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLBonusAcc"/>
+	</field>
+	<field name="GLAdjustmentAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLAdjustmentAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLAdjustmentAcc"/>
+	</field>
+	<field name="GLDeductionAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLDeductionAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLDeductionAcc"/>
+	</field>
+	<field name="GLTaxAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLTaxAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLTaxAcc"/>
+	</field>
+	<field name="GLAdvanceAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLAdvanceAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLAdvanceAcc"/>
+	</field>
+	<field name="GLSeveranceAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLSeveranceAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLSeveranceAcc"/>
+	</field>
+	<field name="GLLeaveAcc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="GLLeaveAcc"/>
+		<property name="com.jaspersoft.studio.field.name" value="GLLeaveAcc"/>
+	</field>
+	<field name="Position" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Position"/>
+		<property name="com.jaspersoft.studio.field.name" value="Position"/>
+	</field>
+	<field name="Ethnic" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Ethnic"/>
+		<property name="com.jaspersoft.studio.field.name" value="Ethnic"/>
+	</field>
+	<field name="UnpaidLeave" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="UnpaidLeave"/>
+		<property name="com.jaspersoft.studio.field.name" value="UnpaidLeave"/>
+	</field>
+	<field name="MaternityAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MaternityAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="MaternityAmt"/>
+	</field>
+	<field name="AllowMisce" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowMisce"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowMisce"/>
+	</field>
+	<field name="OldMisce" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OldMisce"/>
+		<property name="com.jaspersoft.studio.field.name" value="OldMisce"/>
+	</field>
+	<field name="AllowAccBon" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowAccBon"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowAccBon"/>
+	</field>
+	<field name="AllowAccSev" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="AllowAccSev"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowAccSev"/>
+	</field>
+	<field name="Incentive" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Incentive"/>
+		<property name="com.jaspersoft.studio.field.name" value="Incentive"/>
+	</field>
+	<field name="Incentive1" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Incentive1"/>
+		<property name="com.jaspersoft.studio.field.name" value="Incentive1"/>
+	</field>
+	<field name="IncentiveAdv" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="IncentiveAdv"/>
+		<property name="com.jaspersoft.studio.field.name" value="IncentiveAdv"/>
+	</field>
+	<field name="Incentive1Adv" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Incentive1Adv"/>
+		<property name="com.jaspersoft.studio.field.name" value="Incentive1Adv"/>
+	</field>
+	<field name="Other1Amt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Other1Amt"/>
+		<property name="com.jaspersoft.studio.field.name" value="Other1Amt"/>
+	</field>
+	<field name="JobType" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="JobType"/>
+		<property name="com.jaspersoft.studio.field.name" value="JobType"/>
+	</field>
+	<field name="ZoneID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ZoneID"/>
+		<property name="com.jaspersoft.studio.field.name" value="ZoneID"/>
+	</field>
+	<field name="ZoneName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ZoneName"/>
+		<property name="com.jaspersoft.studio.field.name" value="ZoneName"/>
+	</field>
+	<field name="ZoneNameK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ZoneNameK"/>
+		<property name="com.jaspersoft.studio.field.name" value="ZoneNameK"/>
+	</field>
+	<field name="ZoneRange" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="ZoneRange"/>
+		<property name="com.jaspersoft.studio.field.name" value="ZoneRange"/>
+	</field>
+	<field name="ZoneShort" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ZoneShort"/>
+		<property name="com.jaspersoft.studio.field.name" value="ZoneShort"/>
+	</field>
+	<field name="SalaryRate" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SalaryRate"/>
+		<property name="com.jaspersoft.studio.field.name" value="SalaryRate"/>
+	</field>
+	<field name="DOB" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="DOB"/>
+		<property name="com.jaspersoft.studio.field.name" value="DOB"/>
+	</field>
+	<field name="AgeYear" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="AgeYear"/>
+		<property name="com.jaspersoft.studio.field.name" value="AgeYear"/>
+	</field>
+	<field name="AgeMonth" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="AgeMonth"/>
+		<property name="com.jaspersoft.studio.field.name" value="AgeMonth"/>
+	</field>
+	<field name="AgeDay" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="AgeDay"/>
+		<property name="com.jaspersoft.studio.field.name" value="AgeDay"/>
+	</field>
+	<field name="LengthAge" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="LengthAge"/>
+		<property name="com.jaspersoft.studio.field.name" value="LengthAge"/>
+	</field>
+	<field name="JGID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="JGID"/>
+		<property name="com.jaspersoft.studio.field.name" value="JGID"/>
+	</field>
+	<field name="PTN" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PTN"/>
+		<property name="com.jaspersoft.studio.field.name" value="PTN"/>
+	</field>
+	<field name="PTNDesc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PTNDesc"/>
+		<property name="com.jaspersoft.studio.field.name" value="PTNDesc"/>
+	</field>
+	<field name="HealthTax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="HealthTax"/>
+		<property name="com.jaspersoft.studio.field.name" value="HealthTax"/>
+	</field>
+	<field name="HealthTaxR" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="HealthTaxR"/>
+		<property name="com.jaspersoft.studio.field.name" value="HealthTaxR"/>
+	</field>
+	<field name="BankCharge" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="BankCharge"/>
+		<property name="com.jaspersoft.studio.field.name" value="BankCharge"/>
+	</field>
+	<field name="BankExRate" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="BankExRate"/>
+		<property name="com.jaspersoft.studio.field.name" value="BankExRate"/>
+	</field>
+	<field name="BankTax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="BankTax"/>
+		<property name="com.jaspersoft.studio.field.name" value="BankTax"/>
+	</field>
+	<field name="ProbAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ProbAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="ProbAmt"/>
+	</field>
+	<field name="ExcTaxAdjust" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ExcTaxAdjust"/>
+		<property name="com.jaspersoft.studio.field.name" value="ExcTaxAdjust"/>
+	</field>
+	<field name="ExcTaxDeduct" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ExcTaxDeduct"/>
+		<property name="com.jaspersoft.studio.field.name" value="ExcTaxDeduct"/>
+	</field>
+	<field name="ExcNetSalary" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ExcNetSalary"/>
+		<property name="com.jaspersoft.studio.field.name" value="ExcNetSalary"/>
+	</field>
+	<field name="KBonus" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="KBonus"/>
+		<property name="com.jaspersoft.studio.field.name" value="KBonus"/>
+	</field>
+	<field name="KBonusBBal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="KBonusBBal"/>
+		<property name="com.jaspersoft.studio.field.name" value="KBonusBBal"/>
+	</field>
+	<field name="KBonusAcr" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="KBonusAcr"/>
+		<property name="com.jaspersoft.studio.field.name" value="KBonusAcr"/>
+	</field>
+	<field name="KBonusEBal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="KBonusEBal"/>
+		<property name="com.jaspersoft.studio.field.name" value="KBonusEBal"/>
+	</field>
+	<field name="ComName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ComName"/>
+		<property name="com.jaspersoft.studio.field.name" value="ComName"/>
+	</field>
+	<field name="ComNameKh" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ComNameKh"/>
+		<property name="com.jaspersoft.studio.field.name" value="ComNameKh"/>
+	</field>
+	<field name="BranchName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BranchName"/>
+		<property name="com.jaspersoft.studio.field.name" value="BranchName"/>
+	</field>
+	<field name="BranchNameK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BranchNameK"/>
+		<property name="com.jaspersoft.studio.field.name" value="BranchNameK"/>
+	</field>
+	<field name="BranchShort" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BranchShort"/>
+	</field>
+	<field name="HOFlag" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="HOFlag"/>
+	</field>
+	<field name="ExtBranchID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ExtBranchID"/>
+		<property name="com.jaspersoft.studio.field.name" value="ExtBranchID"/>
+	</field>
+	<field name="ConBranchID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ConBranchID"/>
+		<property name="com.jaspersoft.studio.field.name" value="ConBranchID"/>
+	</field>
+	<field name="SubbranchID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="SubbranchID"/>
+		<property name="com.jaspersoft.studio.field.name" value="SubbranchID"/>
+	</field>
+	<field name="ExtSubbranchID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ExtSubbranchID"/>
+		<property name="com.jaspersoft.studio.field.name" value="ExtSubbranchID"/>
+	</field>
+	<field name="Effective" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="Effective"/>
+		<property name="com.jaspersoft.studio.field.name" value="Effective"/>
+	</field>
+	<field name="TaxableSenR" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="TaxableSenR"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxableSenR"/>
+	</field>
+	<field name="TaxableSen" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="TaxableSen"/>
+		<property name="com.jaspersoft.studio.field.name" value="TaxableSen"/>
+	</field>
+	<field name="SeniorityAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SeniorityAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="SeniorityAmt"/>
+	</field>
+	<field name="SeniorityBBal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SeniorityBBal"/>
+		<property name="com.jaspersoft.studio.field.name" value="SeniorityBBal"/>
+	</field>
+	<field name="SeniorityAcr" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SeniorityAcr"/>
+		<property name="com.jaspersoft.studio.field.name" value="SeniorityAcr"/>
+	</field>
+	<field name="SeniorityEBal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SeniorityEBal"/>
+		<property name="com.jaspersoft.studio.field.name" value="SeniorityEBal"/>
+	</field>
+	<field name="RetentionAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="RetentionAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="RetentionAmt"/>
+	</field>
+	<field name="MedalAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MedalAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="MedalAmt"/>
+	</field>
+	<field name="PhoneCard" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PhoneCard"/>
+		<property name="com.jaspersoft.studio.field.name" value="PhoneCard"/>
+	</field>
+	<field name="MonthlyWages" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MonthlyWages"/>
+		<property name="com.jaspersoft.studio.field.name" value="MonthlyWages"/>
+	</field>
+	<field name="MonthlySal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MonthlySal"/>
+		<property name="com.jaspersoft.studio.field.name" value="MonthlySal"/>
+	</field>
+	<field name="ExcAdvPaySal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ExcAdvPaySal"/>
+		<property name="com.jaspersoft.studio.field.name" value="ExcAdvPaySal"/>
+	</field>
+	<field name="MonthlyBen" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MonthlyBen"/>
+		<property name="com.jaspersoft.studio.field.name" value="MonthlyBen"/>
+	</field>
+	<field name="PrevEffectDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="PrevEffectDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevEffectDate"/>
+	</field>
+	<field name="PrevGradeID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevGradeID"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevGradeID"/>
+	</field>
+	<field name="PrevQuartileID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevQuartileID"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevQuartileID"/>
+	</field>
+	<field name="PrevJobTitleID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevJobTitleID"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevJobTitleID"/>
+	</field>
+	<field name="PrevOfficeID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevOfficeID"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevOfficeID"/>
+	</field>
+	<field name="PrevGrade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevGrade"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevGrade"/>
+	</field>
+	<field name="PrevQuartile" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevQuartile"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevQuartile"/>
+	</field>
+	<field name="PrevJobTitle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevJobTitle"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevJobTitle"/>
+	</field>
+	<field name="PrevJobTitleK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevJobTitleK"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevJobTitleK"/>
+	</field>
+	<field name="PrevOfficeName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevOfficeName"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevOfficeName"/>
+	</field>
+	<field name="PrevOfficeNameK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevOfficeNameK"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevOfficeNameK"/>
+	</field>
+	<field name="OldNSADeduct" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OldNSADeduct"/>
+		<property name="com.jaspersoft.studio.field.name" value="OldNSADeduct"/>
+	</field>
+	<field name="VarNSADeduct" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="VarNSADeduct"/>
+		<property name="com.jaspersoft.studio.field.name" value="VarNSADeduct"/>
+	</field>
+	<field name="PrevForPeriod" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PrevForPeriod"/>
+		<property name="com.jaspersoft.studio.field.name" value="PrevForPeriod"/>
+	</field>
+	<field name="OldWagesProb" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OldWagesProb"/>
+		<property name="com.jaspersoft.studio.field.name" value="OldWagesProb"/>
+	</field>
+	<field name="WagesProb" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="WagesProb"/>
+		<property name="com.jaspersoft.studio.field.name" value="WagesProb"/>
+	</field>
+	<field name="VarWagesProb" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="VarWagesProb"/>
+		<property name="com.jaspersoft.studio.field.name" value="VarWagesProb"/>
+	</field>
+	<field name="Benefit1" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Benefit1"/>
+		<property name="com.jaspersoft.studio.field.name" value="Benefit1"/>
+	</field>
+	<field name="Benefit2" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Benefit2"/>
+		<property name="com.jaspersoft.studio.field.name" value="Benefit2"/>
+	</field>
+	<field name="Ben2Advance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Ben2Advance"/>
+		<property name="com.jaspersoft.studio.field.name" value="Ben2Advance"/>
+	</field>
+	<field name="AllowanceAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="AllowanceAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowanceAmt"/>
+	</field>
+	<field name="AllowExcAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="AllowExcAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="AllowExcAmt"/>
+	</field>
+	<field name="Benefit3" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Benefit3"/>
+		<property name="com.jaspersoft.studio.field.name" value="Benefit3"/>
+	</field>
+	<field name="Benefit4" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Benefit4"/>
+		<property name="com.jaspersoft.studio.field.name" value="Benefit4"/>
+	</field>
+	<field name="Benefit5" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Benefit5"/>
+		<property name="com.jaspersoft.studio.field.name" value="Benefit5"/>
+	</field>
+	<field name="LoanPayAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="LoanPayAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="LoanPayAmt"/>
+	</field>
+	<field name="PenDeduct" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PenDeduct"/>
+		<property name="com.jaspersoft.studio.field.name" value="PenDeduct"/>
+	</field>
+	<field name="PiecePayAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PiecePayAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="PiecePayAmt"/>
+	</field>
+	<field name="Benefit25" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Benefit25"/>
+		<property name="com.jaspersoft.studio.field.name" value="Benefit25"/>
+	</field>
+	<field name="NameAndTitle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NameAndTitle"/>
+		<property name="com.jaspersoft.studio.field.name" value="NameAndTitle"/>
+	</field>
+	<field name="NameAndTitleK" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NameAndTitleK"/>
+		<property name="com.jaspersoft.studio.field.name" value="NameAndTitleK"/>
+	</field>
+	<field name="Search" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Search"/>
+		<property name="com.jaspersoft.studio.field.name" value="Search"/>
+	</field>
+	<field name="Email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Email"/>
+		<property name="com.jaspersoft.studio.field.name" value="Email"/>
+	</field>
+	<field name="NetSalaryWord" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NetSalaryWord"/>
+		<property name="com.jaspersoft.studio.field.name" value="NetSalaryWord"/>
+	</field>
+	<field name="LastGradeDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="LastGradeDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="LastGradeDate"/>
+	</field>
+	<field name="LastJobTitleDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="LastJobTitleDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="LastJobTitleDate"/>
+	</field>
+	<field name="LastSalaryDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="LastSalaryDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="LastSalaryDate"/>
+	</field>
+	<field name="NationalityID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NationalityID"/>
+		<property name="com.jaspersoft.studio.field.name" value="NationalityID"/>
+	</field>
+	<field name="Nationality" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Nationality"/>
+		<property name="com.jaspersoft.studio.field.name" value="Nationality"/>
+	</field>
+	<field name="CreatedBy" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="CreatedBy"/>
+		<property name="com.jaspersoft.studio.field.name" value="CreatedBy"/>
+	</field>
+	<field name="CreateDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="CreateDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="CreateDate"/>
+	</field>
+	<field name="UpdatedBy" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="UpdatedBy"/>
+		<property name="com.jaspersoft.studio.field.name" value="UpdatedBy"/>
+	</field>
+	<field name="UpdatedDate" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="UpdatedDate"/>
+		<property name="com.jaspersoft.studio.field.name" value="UpdatedDate"/>
+	</field>
+	<field name="CreatedFrom" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="CreatedFrom"/>
+		<property name="com.jaspersoft.studio.field.name" value="CreatedFrom"/>
+	</field>
+	<field name="UpdatedFrom" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="UpdatedFrom"/>
+		<property name="com.jaspersoft.studio.field.name" value="UpdatedFrom"/>
+	</field>
+	<field name="AccrueBonusQ" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="AccrueBonusQ"/>
+		<property name="com.jaspersoft.studio.field.name" value="AccrueBonusQ"/>
+	</field>
+	<field name="AccrueSeveranceQ" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="AccrueSeveranceQ"/>
+		<property name="com.jaspersoft.studio.field.name" value="AccrueSeveranceQ"/>
+	</field>
+	<field name="PensionAcrQ" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PensionAcrQ"/>
+		<property name="com.jaspersoft.studio.field.name" value="PensionAcrQ"/>
+	</field>
+	<field name="EmpNum" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="EmpNum"/>
+		<property name="com.jaspersoft.studio.field.name" value="EmpNum"/>
+	</field>
+	<field name="CBSType" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="CBSType"/>
+		<property name="com.jaspersoft.studio.field.name" value="CBSType"/>
+	</field>
+	<field name="ReferenceAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="ReferenceAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="ReferenceAmt"/>
+	</field>
+	<field name="UniformAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="UniformAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="UniformAmt"/>
+	</field>
+	<field name="PensionAmt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PensionAmt"/>
+		<property name="com.jaspersoft.studio.field.name" value="PensionAmt"/>
+	</field>
+	<field name="IDcard" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="IDcard"/>
+		<property name="com.jaspersoft.studio.field.name" value="IDcard"/>
+	</field>
+	<field name="IssuedOn" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="IssuedOn"/>
+		<property name="com.jaspersoft.studio.field.name" value="IssuedOn"/>
+	</field>
+	<field name="IssuedBy" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="IssuedBy"/>
+		<property name="com.jaspersoft.studio.field.name" value="IssuedBy"/>
+	</field>
+	<field name="Expired" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="Expired"/>
+		<property name="com.jaspersoft.studio.field.name" value="Expired"/>
+	</field>
+	<field name="SupID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="SupID"/>
+		<property name="com.jaspersoft.studio.field.name" value="SupID"/>
+	</field>
+	<field name="SupName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="SupName"/>
+		<property name="com.jaspersoft.studio.field.name" value="SupName"/>
+	</field>
+	<field name="SupJobtitle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="SupJobtitle"/>
+		<property name="com.jaspersoft.studio.field.name" value="SupJobtitle"/>
+	</field>
+	<sortField name="LocName"/>
+	<variable name="TOTAL_EMP" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Count">
+		<variableExpression><![CDATA[$F{EmployeeID}]]></variableExpression>
+		<initialValueExpression><![CDATA[1]]></initialValueExpression>
+	</variable>
+	<variable name="TT_WAGE" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{Wages}]]></variableExpression>
+	</variable>
+	<variable name="TT_ADJUSTMENT" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{AdjustAmt}]]></variableExpression>
+	</variable>
+	<variable name="TT_DEDUCT" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{DeductAmt}]]></variableExpression>
+	</variable>
+	<variable name="TT_INCENTIVE" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{Incentive}]]></variableExpression>
+	</variable>
+	<variable name="TT_ALLOWANCE" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{AllowanceAmt}]]></variableExpression>
+	</variable>
+	<variable name="TT_PROB_AMT" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{ProbAmt}]]></variableExpression>
+	</variable>
+	<variable name="TT_OTFEE" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{OTFee}]]></variableExpression>
+	</variable>
+	<variable name="TT_SENIOR_ACR" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{SeniorityAcr}]]></variableExpression>
+	</variable>
+	<variable name="TT_BONUS" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{Bonus}]]></variableExpression>
+	</variable>
+	<variable name="TT_GROSS_SAL" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{GrossSal}]]></variableExpression>
+	</variable>
+	<variable name="TT_SPOUSE" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{Spouse}]]></variableExpression>
+	</variable>
+	<variable name="TT_CHILD" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{Child}]]></variableExpression>
+	</variable>
+	<variable name="TT_TAX" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{Tax}]]></variableExpression>
+	</variable>
+	<variable name="TT_SAL_AFTER_TAX" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{SalAfterTax}]]></variableExpression>
+	</variable>
+	<variable name="TT_UNIFORM_AMT" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{UniformAmt}]]></variableExpression>
+	</variable>
+	<variable name="TT_SENIORITY_PAY" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{SeniorityAmt}]]></variableExpression>
+	</variable>
+	<variable name="TT_NET_SAL" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{NetSalary}]]></variableExpression>
+	</variable>
+	<variable name="TT_ADVANCE_PAY" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{AdvancePay}]]></variableExpression>
+	</variable>
+	<variable name="TT_NSA_DEDUCT" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{NSADeduct}]]></variableExpression>
+	</variable>
+	<variable name="TT_BENEFIT" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{Benefit}]]></variableExpression>
+	</variable>
+	<variable name="S_EMP" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{EmployeeID}]]></variableExpression>
+		<initialValueExpression><![CDATA[1]]></initialValueExpression>
+	</variable>
+	<variable name="S_WAGE" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Wages}]]></variableExpression>
+	</variable>
+	<variable name="S_ADJUSTMENT" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{AdjustAmt}]]></variableExpression>
+	</variable>
+	<variable name="S_DEDUCT" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DeductAmt}]]></variableExpression>
+	</variable>
+	<variable name="S_INCENTIVE" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Incentive}]]></variableExpression>
+	</variable>
+	<variable name="S_BENEFIT" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Benefit}]]></variableExpression>
+	</variable>
+	<variable name="S_PROB_AMT" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{ProbAmt}]]></variableExpression>
+	</variable>
+	<variable name="S_OTFEE" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{OTFee}]]></variableExpression>
+	</variable>
+	<variable name="S_ALLOWANCE" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{AllowanceAmt}]]></variableExpression>
+	</variable>
+	<variable name="S_SENIOR_ACR" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{SeniorityAcr}]]></variableExpression>
+	</variable>
+	<variable name="S_BONUS" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Bonus}]]></variableExpression>
+	</variable>
+	<variable name="S_GROSS_SAL" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{GrossSal}]]></variableExpression>
+	</variable>
+	<variable name="S_SPOUSE" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Spouse}]]></variableExpression>
+	</variable>
+	<variable name="S_CHILD" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Child}]]></variableExpression>
+	</variable>
+	<variable name="S_TAX" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Tax}]]></variableExpression>
+	</variable>
+	<variable name="S_SAL_AFTER_TAX" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{SalAfterTax}]]></variableExpression>
+	</variable>
+	<variable name="S_UNIFORM_AMT" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{UniformAmt}]]></variableExpression>
+	</variable>
+	<variable name="S_SENIORITY_PAY" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{SeniorityAmt}]]></variableExpression>
+	</variable>
+	<variable name="S_NET_SAL" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{NetSalary}]]></variableExpression>
+	</variable>
+	<variable name="S_ADVANCE_PAY" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{AdvancePay}]]></variableExpression>
+	</variable>
+	<variable name="S_NSA_DEDUCT" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{NSADeduct}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{LocName}]]></groupExpression>
+		<groupFooter>
+			<band height="12">
+				<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="96" y="0" width="20" height="12" backcolor="#ABC4F5" uuid="10286753-ccea-47b7-98fc-f6acd11ceb3d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TOTAL_EMP}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="17" y="0" width="58" height="12" backcolor="#ABC4F5" uuid="3f94701c-1592-4168-81c2-2dab1f096b30">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{LocName}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="75" y="0" width="21" height="12" backcolor="#ABC4F5" uuid="3fd800a7-d9d1-49b6-beb7-953eb35ec299">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" rightIndent="0"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{LocShort}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="116" y="0" width="44" height="12" backcolor="#ABC4F5" uuid="b505e1ac-54a9-49ef-8e5d-128c048b374c">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_WAGE}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="160" y="0" width="40" height="12" backcolor="#ABC4F5" uuid="2641359a-d98f-4f91-9061-4148fb1f9950">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_ADJUSTMENT}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="200" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="62661e68-41cb-48a3-bdb0-858a487d6f3f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_DEDUCT}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="230" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="60b00dd8-61e6-4d67-b080-0bd568108873">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_INCENTIVE}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="260" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="57a512b1-06e4-4c2e-8b26-ce0ca34b7a45">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_BENEFIT}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="290" y="0" width="34" height="12" backcolor="#ABC4F5" uuid="a768debf-3753-4775-b623-d618da5539cc">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_PROB_AMT}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="324" y="0" width="36" height="12" backcolor="#ABC4F5" uuid="8b6d27e3-c3a5-4a00-8ac3-6ccbf111afdc">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_OTFEE}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="360" y="0" width="34" height="12" backcolor="#ABC4F5" uuid="d9bb70e1-0dca-4a94-b5d6-afd0d4ace405">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_ALLOWANCE}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="394" y="0" width="36" height="12" backcolor="#ABC4F5" uuid="593d7640-5703-4371-ae7b-ebd2840368f1">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_SENIOR_ACR}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="430" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="062e3595-6952-44a8-a9e0-b554b640a977">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_BONUS}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="460" y="0" width="40" height="12" backcolor="#ABC4F5" uuid="40e1dc0d-7c7f-44dc-a451-754a92618df2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_GROSS_SAL}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="500" y="0" width="15" height="12" backcolor="#ABC4F5" uuid="c26d0a2f-2028-4643-b6dd-cce3fd228416">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_SPOUSE}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="515" y="0" width="15" height="12" backcolor="#ABC4F5" uuid="9192c94e-8986-4fc9-a7f9-8308af0b8250">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_CHILD}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="530" y="0" width="34" height="12" backcolor="#ABC4F5" uuid="6c938a4c-cc2f-4ad9-a969-9f6611c6d36b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_TAX}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="564" y="0" width="36" height="12" backcolor="#ABC4F5" uuid="19a7d8cd-8d44-4375-8111-347bc93312f2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_SAL_AFTER_TAX}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="600" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="56d4dc5d-e878-43ca-9b9b-890cb86a91ca">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_UNIFORM_AMT}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="630" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="3d1ce0fd-9ea6-4cb1-9912-a8738756021b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_SENIORITY_PAY}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="660" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="87bcbd73-25aa-457f-918c-346790162977">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_SAL_AFTER_TAX}.add($V{TT_UNIFORM_AMT}.add($V{TT_SENIORITY_PAY}))]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="690" y="0" width="27" height="12" backcolor="#ABC4F5" uuid="6793cc9e-b2d2-439a-a4a1-c18fa8f915cf">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_ADVANCE_PAY}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="717" y="0" width="23" height="12" backcolor="#ABC4F5" uuid="06f1307c-2e02-42fd-99a8-e43385ced81d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_NSA_DEDUCT}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="740" y="0" width="35" height="12" backcolor="#ABC4F5" uuid="7a55be5b-8cff-4895-8297-f82e745ddfa2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TT_NET_SAL}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="775" y="0" width="26" height="12" backcolor="#ABC4F5" uuid="b0e5553a-c766-40f6-96aa-35a74f6addf2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+						<font fontName="Calibri" size="4"/>
+						<paragraph lineSpacingSize="0.0" leftIndent="1" rightIndent="1"/>
+					</textElement>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="66" splitType="Stretch">
+			<staticText>
+				<reportElement x="280" y="0" width="243" height="30" uuid="8156edcc-8a26-4a02-91fd-0ec317667f98"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Summary Payroll]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="30" width="242" height="16" uuid="c46d5284-0075-43d1-b529-0b03b9a6cb4c"/>
+				<textElement textAlignment="Center" markup="html">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" As of " +$F{ForPeriod}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="710" y="49" width="60" height="9" uuid="67845add-6966-4348-96d8-486c74f1c4fd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Exchange Rate = ]]></text>
+			</staticText>
+			<textField textAdjust="ScaleFont" pattern="#,##0.###" isBlankWhenNull="true">
+				<reportElement x="770" y="49" width="28" height="9" uuid="7a96ee32-898f-4e8b-991b-97e0867304d0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f262b5b-4622-4bb9-8776-c4e9b96a5d07"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Calibri" size="5"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Exchange}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="18" y="10" width="149" height="30" uuid="9ece40ba-3ce5-4f7c-90f2-506e60b8e0c6"/>
+				<imageExpression><![CDATA["/static/SBI-Logo-01-1-1024x213.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="17" y="0" width="58" height="15" backcolor="#ABC4F5" uuid="f961d60c-33fd-486d-806d-0b2439e5d93e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f67bde1-c2b9-4fb2-9b34-a524672117ee"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branches]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="75" y="0" width="21" height="15" backcolor="#ABC4F5" uuid="7dc693e6-f689-4cb9-a166-19c4a6b3503f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="13c4b8a7-1bf9-4dc7-998e-f52f421be21e"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="96" y="0" width="20" height="15" backcolor="#ABC4F5" uuid="ded35323-5bfb-4d99-b828-5db6037f9e69">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dbcf25b2-c39b-4d1e-8272-84b8a1a349b0"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Number of Staff]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="116" y="0" width="44" height="15" backcolor="#ABC4F5" uuid="347111b5-8ea1-4b7f-828e-e83829b4f965">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Basic Salary($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="230" y="0" width="30" height="15" backcolor="#ABC4F5" uuid="decc306a-7bf0-4f78-a6f6-a1af6a306a5c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="63cea7c5-7be8-4745-a1fd-6fc49b5718ec"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Incentive ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="260" y="0" width="30" height="15" backcolor="#ABC4F5" uuid="6295814c-2eb9-4dea-911a-207f8a869763">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d62e6ff1-9c08-4412-a159-ab6486df3db6"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gasoline ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="290" y="0" width="34" height="15" backcolor="#ABC4F5" uuid="9ebd6162-7454-4109-9be1-f5aa350b8a41">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cae91341-37a7-4e8d-9503-f26bf1edaace"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Variable Salary ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="324" y="0" width="36" height="15" backcolor="#ABC4F5" uuid="5ce22882-b7ad-419a-b887-0bb951fcd104">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="97442121-e3cf-4165-b200-0ad8f877b77a"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OT ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="360" y="0" width="34" height="15" backcolor="#ABC4F5" uuid="e6d0b78a-f2b2-40aa-a84e-f704292ffd7d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b1fd8aad-c1ec-4107-902f-eac2f964704c"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Other ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="394" y="0" width="36" height="15" backcolor="#ABC4F5" uuid="4099083a-c6ad-47f5-8eb3-1a24b2862a49">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b2f92540-2e26-4210-bf81-a2ec09974a81"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Taxbale Seniority Payment ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="430" y="0" width="30" height="15" backcolor="#ABC4F5" uuid="2dd6ee7e-fcf4-4d72-af0a-40323408295b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c449246d-7e7a-47cf-922a-53f3e0b0af81"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bonus ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="460" y="0" width="40" height="15" backcolor="#ABC4F5" uuid="7a289f60-78ad-4919-8f4e-e4248287904b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7df84fe-7521-4345-b9da-6d68f040f05d"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gross Salary ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="500" y="0" width="15" height="15" backcolor="#ABC4F5" uuid="d9961914-a228-4f66-bdfb-0461510d0a52">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d4e3992-0602-40c8-b01a-2521e2fdcef2"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Spouse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="515" y="0" width="15" height="15" backcolor="#ABC4F5" uuid="2eab7b02-2dd0-4e1e-861a-872f11ecf9ad">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c806a359-dc3d-4ddb-8a60-4d226f70e8ca"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Child]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="530" y="0" width="34" height="15" backcolor="#ABC4F5" uuid="269e2a86-ff58-4231-9011-5c5f4fac761f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3239cfa-380d-4e0b-9b64-8cfcc61afa29"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tax on Salary ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="564" y="0" width="36" height="15" backcolor="#ABC4F5" uuid="6274c2d5-77b1-40ae-aff3-a7d4db8d22e4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f34d47d0-b8fb-44d5-a694-ae3f8f42dc4c"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salary after tax ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="600" y="0" width="30" height="15" backcolor="#ABC4F5" uuid="87d9aa99-a474-4c69-997f-566ba6f63342">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2d01b7a8-d83f-4239-ba5b-bcf328bfa2ee"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Uniform ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="630" y="0" width="30" height="15" backcolor="#ABC4F5" uuid="919bea99-5914-4a03-a0ef-a301b5cbab32">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="488baa0c-a2ba-4c67-920f-c1e8dd9888a9"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Seniority Payment ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="660" y="0" width="30" height="15" backcolor="#ABC4F5" uuid="00b3ac63-3df4-4c49-a7c6-1130917350ec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e4fe9979-80b9-4f26-a001-9c5f3546c06b"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Net Salary ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="690" y="0" width="27" height="15" backcolor="#ABC4F5" uuid="1f81e27a-e187-479d-8b41-d913ef90acd5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a0a7c32e-4726-41c9-9c8a-962482458545"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Advance Salary ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="717" y="0" width="23" height="15" backcolor="#ABC4F5" uuid="7405038b-3ab6-441a-84f3-19ab80a3edc7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1b8960b-bf3f-44da-94b2-1ec35e739b3d"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Covid19 Fund ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="740" y="0" width="35" height="15" backcolor="#ABC4F5" uuid="038d906f-bbbf-46fb-8f14-ab64213962db">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f262b5b-4622-4bb9-8776-c4e9b96a5d07"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Pay ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="160" y="0" width="40" height="15" backcolor="#ABC4F5" uuid="53ce494c-3f15-4be0-aae1-c1bf0ea4a098">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Adjustment($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="200" y="0" width="30" height="15" backcolor="#ABC4F5" uuid="85ee7727-6520-4fa2-95f1-93e69e10f6a5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deduction($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="775" y="0" width="26" height="15" backcolor="#ABC4F5" uuid="2d64f5a0-6e47-4bef-96d2-7b58bc7f4f6a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f262b5b-4622-4bb9-8776-c4e9b96a5d07"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remark]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="6" splitType="Stretch">
+			<textField>
+				<reportElement x="622" y="0" width="161" height="6" uuid="879b4cef-dc25-4ca8-b1c2-377f2ea2e710">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="783" y="0" width="18" height="6" uuid="d6d714b2-fec3-4457-827b-cb7c30f76700">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="150" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="30" width="84" height="18" uuid="a414f164-dd90-46bb-9660-a2054f2826de"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Phnom Penh, ]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="100" y="30" width="149" height="18" uuid="2bd40b6c-85d8-42ca-94c9-7de1ec67d421"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="48" width="238" height="20" uuid="e3741f74-25de-4ab0-b767-d54cf102bacc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prepared by]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="110" width="237" height="21" uuid="d88683ef-a80b-4c96-9602-9e9be45dd383"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[San Puthy]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="130" width="237" height="20" uuid="597d2be0-fe9c-4d68-89d1-fcd98ffa1ed7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Human Resource Officer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="550" y="50" width="210" height="19" uuid="e91f270d-1a6c-49cd-831b-fb93d7efd922"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Approved by]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="549" y="110" width="212" height="19" uuid="5acfb533-ddb0-4ab4-ae5b-22e2c5df9dfe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Aing Bunseng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="549" y="130" width="212" height="20" uuid="2bb1c16f-8bc8-4bba-a3a6-9076a95495c7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Chief of Staff]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="48" width="212" height="19" uuid="3d06f22c-13ea-4849-ad40-0d079131d9cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Verified by]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="131" width="212" height="19" uuid="70cfe7d4-c5aa-4bc7-acb2-057398854267"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Personnel Unit Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="112" width="212" height="19" uuid="f6f618af-6317-4817-b8c3-0dac1958751f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Loch Leang]]></text>
+			</staticText>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="394" y="0" width="36" height="12" backcolor="#ABC4F5" uuid="0e6e7472-e871-413d-b12e-e19c38df11c5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b2f92540-2e26-4210-bf81-a2ec09974a81"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_SENIOR_ACR}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="717" y="0" width="23" height="12" backcolor="#ABC4F5" uuid="7085d98e-8a6a-47a6-b6c3-907b2519642c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1b8960b-bf3f-44da-94b2-1ec35e739b3d"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_NSA_DEDUCT}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="660" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="e4084555-a8bd-4965-9add-f275386a7c6a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e4fe9979-80b9-4f26-a001-9c5f3546c06b"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_SAL_AFTER_TAX}.add($V{S_UNIFORM_AMT}.add($V{S_SENIORITY_PAY}))]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="116" y="0" width="44" height="12" backcolor="#ABC4F5" uuid="b6573539-7fe6-40d0-964a-432074fe3986">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_WAGE}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="430" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="05683b49-f4c3-400c-8531-9c1705bd4a7c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c449246d-7e7a-47cf-922a-53f3e0b0af81"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_BONUS}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="740" y="0" width="35" height="12" backcolor="#ABC4F5" uuid="5f3c8e59-46d7-4d9d-baf7-baec8968cdce">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f262b5b-4622-4bb9-8776-c4e9b96a5d07"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_NET_SAL}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="515" y="0" width="15" height="12" backcolor="#ABC4F5" uuid="962b9340-a039-4506-a2cf-43f605e8c47e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c806a359-dc3d-4ddb-8a60-4d226f70e8ca"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_CHILD}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="230" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="5e502538-7b26-4313-b37d-ca7865656c58">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="63cea7c5-7be8-4745-a1fd-6fc49b5718ec"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_INCENTIVE}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="500" y="0" width="15" height="12" backcolor="#ABC4F5" uuid="74afa55e-3b97-4883-843f-e45cc48f8b7d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d4e3992-0602-40c8-b01a-2521e2fdcef2"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_SPOUSE}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="324" y="0" width="36" height="12" backcolor="#ABC4F5" uuid="7ebf1da6-542a-4624-85a6-b5e219483912">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="97442121-e3cf-4165-b200-0ad8f877b77a"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_OTFEE}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="96" y="0" width="20" height="12" backcolor="#ABC4F5" uuid="18e5dfb3-c042-400e-8b6c-bed009c29477">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="862cefd3-a1b1-45f9-a21a-29c61bd1f423"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_EMP}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="200" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="0cf36c55-93a0-445c-851f-6cf417b5bcb5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_DEDUCT}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="¤#,##0.00;¤-#,##0.00" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="775" y="0" width="26" height="12" backcolor="#ABC4F5" uuid="4ede875a-ee31-42fd-b8af-3b61596f9e85">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f262b5b-4622-4bb9-8776-c4e9b96a5d07"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="290" y="0" width="34" height="12" backcolor="#ABC4F5" uuid="2f40591d-b130-4e52-8da0-06e95f845ef6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cae91341-37a7-4e8d-9503-f26bf1edaace"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_PROB_AMT}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="630" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="abad8acc-2b00-49f4-9c7b-a5ae852d38e9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="488baa0c-a2ba-4c67-920f-c1e8dd9888a9"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_SENIORITY_PAY}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="160" y="0" width="40" height="12" backcolor="#ABC4F5" uuid="1d9e2796-b2c2-471a-96fd-ba0dbc7f8616">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e6fc49-46ae-4461-a00f-62c8b81d348b"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_ADJUSTMENT}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="600" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="3b0ea063-4634-4e2c-974b-6ff7a997b96c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2d01b7a8-d83f-4239-ba5b-bcf328bfa2ee"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_UNIFORM_AMT}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="564" y="0" width="36" height="12" backcolor="#ABC4F5" uuid="52914ef3-8695-4125-b6a9-7b9556936711">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f34d47d0-b8fb-44d5-a694-ae3f8f42dc4c"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_SAL_AFTER_TAX}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="460" y="0" width="40" height="12" backcolor="#ABC4F5" uuid="1af206c0-4e9c-4b40-88e6-743009924995">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7df84fe-7521-4345-b9da-6d68f040f05d"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_GROSS_SAL}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="360" y="0" width="34" height="12" backcolor="#ABC4F5" uuid="fead6815-8a69-4c58-ac7b-79421281c3bb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b1fd8aad-c1ec-4107-902f-eac2f964704c"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_ALLOWANCE}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="530" y="0" width="34" height="12" backcolor="#ABC4F5" uuid="ef521a40-51c0-49b9-b189-85bb4ad33b6c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3239cfa-380d-4e0b-9b64-8cfcc61afa29"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_TAX}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="690" y="0" width="27" height="12" backcolor="#ABC4F5" uuid="b1c732c3-117d-40dc-b730-be1d31ff70d9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a0a7c32e-4726-41c9-9c8a-962482458545"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_ADVANCE_PAY}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="260" y="0" width="30" height="12" backcolor="#ABC4F5" uuid="e4c55397-10c6-4de9-a2d8-ec839a7eab26">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d62e6ff1-9c08-4412-a159-ab6486df3db6"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="4"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_BENEFIT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="75" y="0" width="21" height="12" backcolor="#ABC4F5" uuid="43b829eb-9114-4549-8b13-a120e750c469">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="4"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

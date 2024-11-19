@@ -1,0 +1,64 @@
+<div class=" col-md-5" >
+<div th:fragment="kanban" class="card card-info card-outline col-md-6" th:if="${screenType == 'K'}" th:each="kanban : ${kanbanData}">
+    
+    <!-- <div class="card card-info card-outline" data-select2-id="2"> -->
+	<div class="card-header">
+        <h3 class="card-title text-info  text-uppercase" th:text="${kanban.tempname}"></h3>
+        <div class="card-tools">
+            <button type="button"  id="btn-search" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    
+    <div class="card-body">     
+	 	<div class="row">
+	 		 <div class="col-md-3">
+	        	<div class="form-group">
+	        		<span class="pull-right"> 
+	        			<img th:src="@{/sample/showimage(id=${kanban.id})}" alt="" style="width: 3cm; height: 4cm;">
+					    	<!-- <img src="https://cdn.dribbble.com/users/123846/screenshots/6426558/ironman-full_2x.jpg" alt=""
+					            style="width: 3cm; height: 4cm;"> -->
+					       <!-- <img th:src="@{/pictures/ironman-full_2x.jpg}" alt="" style="width: 3cm; height: 4cm;"> -->					            
+		
+					   </span> 
+				</div>
+	        </div>
+	 		<div class=" col-md-6">
+	             <div class="form-group">	   
+	             	<!-- <div class=" col-md-6">
+	                  <label for="inputEmail3" th:text="${kanban.empdate}" class="col-sm-2 control-label">Email</label>
+	
+	                  <div class="col-sm-10">
+	                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+	                  </div>
+	                </div>    -->                                    
+	              	
+	              	 <table class="custom-tbl" width="100%">
+                        <tr><td><b> Code</b></td><td>:</td><td> <span class="text-danger" th:text="${kanban.tempcode}"></span></td></tr>
+                        <tr><td valign="top"><b>Short</b></td><td valign="top">:</td><td valign="top" th:text="${kanban.tempshort}"></td></tr> 
+                     	<tr><td valign="top"><b>Name</b></td><td valign="top">:</td><td valign="top" th:text="${kanban.tempname}"></td></tr> 
+                     	<tr><td valign="top"><b>Date</b></td><td valign="top">:</td><td valign="top" th:text="${kanban.tempdate}"></td></tr> 
+                     
+                     </table> 
+                      
+	             </div>
+	        </div>
+	       
+        </div>     
+    </div>  
+     <div class="card-footer">
+          <div class="text-right">
+          	<a th:href="@{/sample/attach(id = ${kanban.id})}" class="btn btn-outline-primary btn-flat mt-1" title="Attach Link File">
+                    <i class="fa fa-paperclip"></i></a>
+          	<a th:href="@{/sample/upload(id = ${kanban.id})}" class="btn btn-outline-primary btn-flat mt-1" title="Upload File">
+                    <i class="fa fa-upload"></i></a>
+            <a th:href="@{/sample/view(id = ${kanban.id})}" class="btn btn-outline-info btn-flat  mt-1" title="View Detail"> <!-- target="_blank" -->
+                    <i class="fa fa-newspaper-o"></i></a>
+          	<a th:href="@{/sample/update(id = ${kanban.id})}" class="btn btn-outline-success btn-flat mt-1" title="Edit">
+                    <i class="fa fa-edit"></i></a>
+            <a th:href="@{/sample/delete(id = ${kanban.id})}" class="btn btn-outline-danger btn-flat mt-1 single-delete" title=" Delete">
+                    <i class="fa  fa-trash"></i></a>
+          </div>
+     </div>
+   
+</div>
+</div>

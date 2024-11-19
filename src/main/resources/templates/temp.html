@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="layout/header :: header"></head>
+
+<body>
+    <nav th:replace="layout/navbar_menu :: navbar_menu"></nav>
+    <div th:replace="layout/search :: search"></div>
+</body>
+<div th:replace="layout/script :: script"></div>
+
+</html>
+
+
+
+
+<select class="form-control form-control-sm" id="ZoneID" onchange="get_name_code('json/office/','ZoneID', 'OfficeID')">
+    <option value="">--select--</option>
+    <option  th:each="zone : ${zones}" th:value="${zone.Code}" th:text="${zone.Name}" ></option>
+</select>

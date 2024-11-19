@@ -1,0 +1,107 @@
+<nav th:fragment="navbar_menu"
+  class="navbar navbar-expand-lg navbar-light bg-white navbar-white border-bottom fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto nav-compact">
+      <li class="nav-item active">
+        <!-- <a class="nav-link" href="/"><i class="fa fa-th" aria-hidden="true"></i> Home <span -->
+        <a class="nav-link" th:href="@{/}"><i class="fa fa-th" aria-hidden="true"></i> <span
+            class="sr-only">(current)</span></a>
+      </li>
+      <li>
+        <a class="nav-link" th:href="@{${session.btnmodule}}" th:text="${session.modulename}"></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false" id="idNavAction">Action</a>
+        <div th:class=" ${session.actions != null && session.actions.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavAction">
+          <a th:each="action:${session.actions}" th:href="@{${action.Code}}" th:text="${action.Name}"
+            class="dropdown-item"></a>
+        </div>
+      </li>
+	
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false" id="idNavGoto">Go To</a>
+        <div th:class="${session.links != null && session.links.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavGoto">
+          <a th:each="link:${session.links}" th:href="@{${link.Code}}" th:text="${link.Name}" class="dropdown-item"></a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false" id="idNavEnquiry">Enquiry</a>
+        <div th:class="${session.enquiries != null && session.enquiries.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavEnquiry">
+          <a th:each="enquiry:${session.enquiries}" th:href="@{${enquiry.Code}}" th:text="${enquiry.Name}"
+            class="dropdown-item"></a>
+        </div>
+      </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false" id="idNavImport">Import</a>
+        <div th:class="${session.imports != null && session.imports.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavImport">
+          <a th:each="import:${session.imports}" th:href="@{${import.Code}}" th:text="${import.Name}"
+            class="dropdown-item"></a>
+        </div>
+      </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false" id="idNavExport">Export</a>
+        <div th:class="${session.exports != null && session.exports.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavExport">
+          <a th:each="export:${session.exports}" th:href="@{${export.Code}}" th:text="${export.Name}"
+            class="dropdown-item"></a>
+        </div>
+      </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false" id="idNavReport">Report</a>
+        <div th:class=" ${session.reports != null && session.reports.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavReport">
+          <a th:if="${session.reports}" th:each="report:${session.reports}" th:href="@{${report.Code}}"
+            th:text="${report.Name}" class="dropdown-item"></a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false" id="idNavMaintenance">Maintenance</a>
+        <div th:class="${session.maintenances != null && session.maintenances.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavMaintenance">
+          <a th:each="maintenance:${session.maintenances}" th:href="@{${maintenance.Code}}" th:text="${maintenance.Name}"
+            class="dropdown-item"></a>
+        </div>
+      </li>
+      
+      <li class="nav-item dropdown">      
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" 
+        	aria-expanded="false" id="idNavModule">Module</a>
+        <div th:class=" ${session.modules != null && session.modules.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavAction">
+          <a th:each="module:${session.modules}" th:href="@{${module.Code}}" th:text="${module.Name}"
+            class="dropdown-item"></a>
+        </div>
+      </li>
+      
+    </ul>
+
+    <div class="dropdown">
+      <button th:text="${session.account == null? '':session.account.userId}"
+        class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <a class="dropdown-item" th:href="@{/profile}">View Profile</a>
+        <a class="dropdown-item" th:href="@{/changePassword}">Change Password</a>
+        <a class="dropdown-item" th:href="@{/logout}">Log out</a>
+      </div>
+    </div>
+  </div>
+</nav>

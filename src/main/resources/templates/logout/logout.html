@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="layout/header :: header"></head>
+
+<body>
+    <div class="row" style="padding-top: 6rem;">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                  
+                </div>
+                <div class="card-body">
+                   <h2>Would you like to logout?</h2>
+                </div>
+                <div class="card-footer">
+                    <form th:action="@{/logout}" method="POST">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                        <a th:href="@{/}" class="btn btn-sm btn-warning">Cancel</a>
+                        <input type="submit" value="logout" class="btn btn-sm btn-primary pull-right">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
+<div th:fragment="layout/script :: script"></div>
+
+</html>

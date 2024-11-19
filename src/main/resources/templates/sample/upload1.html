@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/header :: header">
+	<style type="text/css" class="init">
+		div.container {
+			width: 80%;
+		}
+
+		div.dataTables_wrapper {
+			width: 800px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body class="container-fluid">
+	<nav th:replace="layout/navbar_menu :: navbar_menu"></nav>
+
+	<div th:replace="layout/search :: search"></div>
+	<div class="card">
+		<!-- <div class="card-header bg-light border-light">
+	        <h5 class="card-title">List</h5>
+	        <div class="card-tools pull-right">
+		      <span><a th:href="@{/listtype/view( id = ${id} )}" class="btn">
+		      <i class="fa fa-gear" aria-hidden="true"></i></a></span> 
+		    </div>
+        </div> -->
+		<div class="card-body">
+			<div class="row" style="padding-right: 0px;">
+				<div th:if="${(param.message)}" th:text="${(param.message)}" th:class="${(param.class)+' '+'delay5000'}"
+					style="width: 100%" role="alert"></div>
+				<div class="alert alert-primary delay5000" role="alert"
+					th:if="${listData != null && listData.size() <1}">No
+					record found</div>
+
+				<div th:if="${trees != null && trees.size() > 0}" class="col-md-2">
+					<!-- here is tree -->
+				</div>
+				<div th:class="${trees != null && trees.size() > 0} ? 'col-md-10 table-responsive' : 'col-md-12 table-responsive'"
+					style="padding-right: 0px;">
+
+					<form method="POST" th:action="@{/sample/upload}" enctype="multipart/form-data">
+						<table>
+							<tr>
+								<td>
+									<label path="file">Select a file to upload</label>
+								</td>
+								<td><input type="file" name="file" /></td>
+							</tr>
+							<tr>
+								<td><input type="submit" value="Submit" /></td>
+							</tr>
+						</table>
+						</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+<div th:replace="layout/script :: script"></div>
+
+</html>

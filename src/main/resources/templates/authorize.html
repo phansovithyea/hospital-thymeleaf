@@ -1,0 +1,90 @@
+<!-- this file is not used by any controller. just a sample for copy and paste -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/header :: header">
+<style type="text/css" class="init">
+	div.container {
+        width: 80%;
+    }
+    
+	div.dataTables_wrapper {
+		width: 800px;
+		margin: 0 auto;
+	}
+
+</style>
+</head>
+
+<body class="container-fluid">
+    <nav th:replace="layout/navbar_menu :: navbar_menu"></nav>
+
+    <div style="padding-top: 4rem;">
+		<div class="card">
+			<div class="card-header border-light">
+		        <h5 class="card-title"><label class="label-control" th:text="${session.pathString}"></label></h5>
+		        <div class="card-tools pull-right">
+			      <span><a th:href="@{/listtype/view( id = ${id} )}" class="btn">
+			      <i class="fa fa-gear" aria-hidden="true"></i></a></span> 
+			    </div>
+			    <a th:if="${session.btncreate}" th:href="${session.btncreate}" class="btn btn-sm btn-primary">Authorize</a>
+	        </div>
+	    </div>  
+	    <div th:if="${(param.message)}" th:text="${(param.message)}" th:class="${(param.class)+' '+'delay5000'}"
+			style="width: 100%" role="alert">
+		</div>
+	    <div class="card">
+	        <div class="card-body">
+				<div class="row" style="padding-right: 0px;">
+					
+			    <!-- table -->
+			    <div th:if="${session.display == 'L'}" class="row table-responsive" style="padding-left: 0rem;">
+			    	
+							
+			        <div class="alert alert-primary" role="alert" th:if="${listData !=null && listData.size() <1}">
+			            No record found
+			        </div>
+			        <div class="init">
+			         <!-- class="table table-sm table-hover table-striped table-bordered bg-white" -->
+			        <table id="list_data" class="table table-sm table-hover table-striped table-bordered bg-white"
+			        	  style="width:100%">
+			            <thead>
+			                <tr th:if="${listData !=null && listData.size() > 0}">
+			                    <th th:each="c:${listData[0]}" th:text="${c.getKey()}">
+			                    </th>
+			                </tr>
+			            </thead>
+			            <tbody>
+			                <tr th:each="col:${listData}" th:data-text="|${session.search}/${col.get('ID')}|"
+			                    ondblclick="GoToUrl(this.getAttribute('data-text'))">
+			                    <td nowrap th:each="v:${col}" th:text="${v.getValue()}"></td>
+			                </tr>
+			            </tbody>
+			        </table>
+			        </div>
+			    	</div>
+	    		</div>
+	    	</div>
+    	</div>
+    </div>
+</body>
+<div th:replace="layout/script :: script"></div>
+<!-- <script>
+  $(function () {
+    $('#list_data').DataTable({
+      'scrollY':        '50vh',  //vertically scrolling unit
+      //'scrollY':        '200px',  //pagination for displaying a large table in a fairly small vertical area
+      'scrollX' 	: true,			//both horizontal and vertical scrolling at the same time
+      'scrollCollapse': true,
+      'paging'      : false,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : false,
+      'autoWidth'   : false
+      //"pagingType": "full_numbers"
+    })
+  })
+</script> -->
+</html>

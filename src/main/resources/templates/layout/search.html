@@ -1,0 +1,132 @@
+<div th:fragment="search" style="padding-top: 4rem;">
+    <div class="card">
+        <div class="card-body" style="padding-top: 0.5rem; padding-bottom:0rem;">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="label-control" th:text="${session.pathString}"></label>
+                </div>
+                <div class="col-md-8">
+                    <form th:action="@{${session.search}}" method="GET">
+                        <div class="input-group mb-3">
+                            <input type="text" name="search" th:value="${search}" class="form-control"
+                                placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-search"></i> Search</button>
+                            </div>
+                        </div>
+                        <!-- <input type="text" class="form-control form-control-sm" placeholder="Search..."> -->
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">                	
+                    <a th:if="${session.btncreate}" th:href="@{${session.btncreate}}" class="btn btn-sm btn-primary"><i class="fa fa-plus-square"></i> Create</a>
+                    <!-- <label class="alert alert-primary delay5000" th:text="${session.message}"></label><br> -->
+                </div>
+                <div class="col-md-8">
+                    <span>
+                        <div class="dropdown d-inline-flex">
+                            <a href="#" id="Filter" class="btn dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-filter" aria-hidden="true"></i>Filter
+
+                                <div class="dropdown-menu" aria-labelledby="Filter">
+                                    <a class="dropdown-item" href="#" th:each="filter:${session.filters}">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" th:id="${filter.Code}"
+                                                th:name="${filter.Code}">
+                                            <label class="custom-control-label" th:for="${filter.Code}"
+                                                th:text="${filter.Name}"></label>
+                                        </div>
+                                    </a>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- <div class="dropdown d-inline-flex">
+                            <a href="#" id="GroupBy" class="btn dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bars" aria-hidden="true"></i>Group By
+
+                                <div class="dropdown-menu" aria-labelledby="GroupBy">
+                                    <a class="dropdown-item" href="#" th:each="groupBy:${session.groupBys}">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" th:id="${groupBy.Code}"
+                                                th:name="${groupBy.Code}">
+                                            <label class="custom-control-label" th:for="${groupBy.Code}"
+                                                th:text="${groupBy.Name}"></label>
+                                        </div>
+                                    </a>
+                                </div>
+                            </a>
+
+                        </div> -->
+
+                        <!-- <div class="dropdown d-inline-flex">
+                            <a href="#" id="Favorite" class="btn dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-star" aria-hidden="true"></i>Favorite
+
+                                <div class="dropdown-menu" aria-labelledby="Favorite">
+                                    <a class="dropdown-item" href="#" th:each="favorite:${session.favorites}">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" th:id="${favorite.Code}"
+                                                th:name="${favorite.Code}">
+                                            <label class="custom-control-label" th:for="${favorite.Code}"
+                                                th:text="${favorite.Name}"></label>
+                                        </div>
+                                    </a>
+                                </div>
+                            </a>
+                        </div> -->
+						
+						<div class="dropdown d-inline-flex">
+                            <a href="#" id="Page" class="btn dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-filter" aria-hidden="true"></i>Page
+
+                                <div th:class=" ${session.pages != null && session.pages.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="Page">
+                                    <a class="dropdown-item" th:each="page:${session.pages}" 
+                                    th:href="@{${session.search+'?pageNumber='+page.Code}}" th:text="${page.Name}">
+                                        <!-- <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" th:id="${filter.Code}"
+                                                th:name="${filter.Code}">
+                                            <label class="custom-control-label" th:for="${filter.Code}"
+                                                th:text="${filter.Name}"></label>
+                                        </div> -->
+                                    </a>
+                                </div>
+                            </a>
+                        </div>
+                        
+                    </span>
+					
+                    <span class="pull-right">
+                    	 <a th:if="@{${session.page!=null && session.page[0].backNumber>0}}" th:href="@{${session.search+'?pageNumber='+session.page[0].backNumber}}" class="btn">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        </a>                   
+                        <a th:if="@{${session.page!=null}}" th:href="@{${session.search+'?pageNumber='+session.page[0].pageNumber}}" class="btn" th:text="@{${session.page[0].pageNumber}}">
+                           
+                        </a>/
+                        <a th:if="@{${session.page!=null}}" th:href="@{${session.search+'?pageNumber='+session.page[0].pageCount}}" class="btn" th:text="@{${session.page[0].pageCount}}">
+                           
+                        </a>
+                        <a th:if="@{${session.page!=null}}" th:href="@{${session.search+'?pageNumber='+session.page[0].nextNumber}}" class="btn">
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+                        
+                        <a th:href="@{${session.search+'?screenType=D'}}" class="btn">
+                            <i class="fa fa-dashboard"></i>
+                        </a>
+                        <a th:href="@{${session.search+'?screenType=K'}}" class="btn">
+                            <i class="fa fa-th-large"></i>
+                        </a>
+                        <a th:href="@{${session.search+'?screenType=L'}}" class="btn">
+                            <i class="fa fa-list-ul"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

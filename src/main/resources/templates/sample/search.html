@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/header :: header"></head>
+
+<body>
+    <nav th:replace="layout/navbar_menu :: navbar_menu"></nav>
+    <form th:action="@{/sample/search}" method="POST" th:object="${sample}">
+    	<div class="container-fluid" style="padding-top: 4rem; padding-left: 0.5rem;padding-right: 0.5rem;">
+    		<div class="card border-primary mb-3">
+    		<div class="card-header bg-light border-light">
+    			<label class="label-control" th:text="${session.pathString}"></label><br>
+    			<div class="card-tools pull-right">
+			      <span><a th:href="@{/listtype/view( id = ${id} )}" class="btn">
+			      <i class="fa fa-gear" aria-hidden="true"></i></a></span> 
+			    </div>
+    		</div>
+	        <div class="card">
+		        <div class="card-body" style="padding-top: 0.5rem; padding-bottom:0.5rem;">	        	
+		            <button type="submit" class="btn btn-sm btn-primary">Search</button>
+		            <a th:href="@{/sample}" class="btn btn-sm btn-warning">Cancel</a>
+	        	</div>
+	        </div>
+	       
+			<div th:if="${message}" th:text="${message}" th:class="${class}" role="alert"></div>
+	        <div class="card border-primary mb-3">
+	        <div class="card-body text-primary" style="padding-top: 1rem; padding-bottom:0rem;">	
+	
+	            <div class="row form-group">
+	                <label class="control-label col-md-2 text-md-right" th:for="TempCode">Code</label>
+	                <div class="col-md-4">
+	                	<!-- <input type="hidden" th:field="*{TempCode}" /> -->
+	                    <!-- <input type="text" th:field="*{TempCode}" th:class="${#fields.hasErrors('TempCode')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+	                     -->
+	                     <input type="text" class="form-control form-control-sm " th:field="*{TempCode}">
+                        <!-- <p th:if="${#fields.hasErrors('TempCode')}" th:errors="*{TempCode}" class="text-danger"></p> -->
+	                </div>
+					
+					<label class="control-label col-md-2 text-md-right" th:for="TempName">Name</label>
+	                <div class="col-md-4">                  
+	                    <!-- <input type="hidden" th:field="*{TempName}" />    -->   
+	                    <!-- <input type="text" th:field="*{TempName}" th:class="${#fields.hasErrors('TempName')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+	                     -->
+	                     <input type="text" class="form-control form-control-sm " th:field="*{TempName}">
+                        <!-- <p th:if="${#fields.hasErrors('TempName')}" th:errors="*{TempName}" class="text-danger"></p> -->
+	                </div>
+	            </div>
+	          
+	            </div>
+	        </div>
+	        <div class="card border-primary mb-3">
+	        	<div class="card-body text-primary" style="padding-top: 1rem; padding-bottom:0rem;">	
+			        <div class="row container-fluid table-responsive" style="padding-right: 0px;">
+						<table th:replace="layout/list_export :: list_data"></table>
+					</div>
+				</div>
+			</div>
+	        </div>
+	     </div>
+    </form>
+    
+</body>
+<div th:replace="layout/script :: script"></div>
+
+</html>

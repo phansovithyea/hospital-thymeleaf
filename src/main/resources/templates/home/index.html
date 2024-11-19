@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="layout/header :: header">
+    <title>iBizTech System</title>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+
+
+    <!-- <div class="container" style="padding-top: 4rem;">
+        <div class="row">
+            <div th:each="menu: ${menus}" th:classappend="${menu.menuList =='T'} ? col-md-12 : ''">
+                <hr th:if="${menu.menuList == 'T'}">
+                <h3 th:if="${menu.menuList == 'T'}" th:text="${menu.funcDesc}"></h3>
+                <br th:if="${menu.menuList == 'T'}">
+                <a th:if="${menu.menuList != 'T'}" th:href="${menu.webUrl}" class='btn btn-sm btn-lg btn-outline-default'
+                    style="margin: 5px;">
+                    <div style="text-align: center;">
+                        <i th:class="${menu.iconCode}"></i>
+                        <div th:text="${menu.funcDesc}"></div>
+                    </div>
+                </a>
+            </div>
+    
+           
+        </div>
+    </div>  -->
+
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white bg-white navbar-light border-bottom fixed-top">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+                </li>
+                <!-- <li class="nav-item d-none d-sm-inline-block">
+                    <a th:href="@{/}" class="nav-link">Home</a>
+                </li> -->
+
+			  <!-- <li>
+		        <a class="nav-link" th:href="@{${session.btnmodule}}" th:text="${session.modulename}"></a>
+		      </li>
+		      
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+		          aria-expanded="false" id="idNavAction">Action</a>
+		        <div th:class=" ${session.actions != null && session.actions.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavAction">
+		          <a th:each="action:${session.actions}" th:href="@{${action.Code}}" th:text="${action.Name}"
+		            class="dropdown-item"></a>
+		        </div>
+		      </li>
+			
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+		          aria-expanded="false" id="idNavGoto">Go To</a>
+		        <div th:class="${session.links != null && session.links.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavGoto">
+		          <a th:each="link:${session.links}" th:href="@{${link.Code}}" th:text="${link.Name}" class="dropdown-item"></a>
+		        </div>
+		      </li>
+		
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+		          aria-expanded="false" id="idNavEnquiry">Enquiry</a>
+		        <div th:class="${session.enquiries != null && session.enquiries.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavEnquiry">
+		          <a th:each="enquiry:${session.enquiries}" th:href="@{${enquiry.Code}}" th:text="${enquiry.Name}"
+		            class="dropdown-item"></a>
+		        </div>
+		      </li>
+		
+		
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+		          aria-expanded="false" id="idNavImport">Import</a>
+		        <div th:class="${session.imports != null && session.imports.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavImport">
+		          <a th:each="import:${session.imports}" th:href="@{${import.Code}}" th:text="${import.Name}"
+		            class="dropdown-item"></a>
+		        </div>
+		      </li>
+		
+		
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+		          aria-expanded="false" id="idNavExport">Export</a>
+		        <div th:class="${session.exports != null && session.exports.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavExport">
+		          <a th:each="export:${session.exports}" th:href="@{${export.Code}}" th:text="${export.Name}"
+		            class="dropdown-item"></a>
+		        </div>
+		      </li>
+		
+		
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+		          aria-expanded="false" id="idNavReport">Report</a>
+		        <div th:class=" ${session.reports != null && session.reports.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavReport">
+		          <a th:if="${session.reports}" th:each="report:${session.reports}" th:href="@{${report.Code}}"
+		            th:text="${report.Name}" class="dropdown-item"></a>
+		        </div>
+		      </li>
+		
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+		          aria-expanded="false" id="idNavMaintenance">Maintenance</a>
+		        <div th:class="${session.maintenances != null && session.maintenances.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavMaintenance">
+		          <a th:each="maintenance:${session.maintenances}" th:href="@{${maintenance.Code}}" th:text="${maintenance.Name}"
+		            class="dropdown-item"></a>
+		        </div>
+		      </li>
+		      
+		      <li class="nav-item dropdown">      
+		        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" 
+		        	aria-expanded="false" id="idNavModule">Module</a>
+		        <div th:class=" ${session.modules != null && session.modules.size()>13} ? 'dropdown-menu scroll' : 'dropdown-menu' " aria-labelledby="idNavAction">
+		          <a th:each="module:${session.modules}" th:href="@{${module.Code}}" th:text="${module.Name}"
+		            class="dropdown-item"></a>
+		        </div>
+		      </li> -->
+      
+            </ul>
+
+            <div class="dropdown pull-right">
+                <button th:text="${session.account == null? '':session.account.userId}"
+                    class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <a class="dropdown-item" th:href="@{/profile}">View Profile</a>
+                    <a class="dropdown-item" th:href="@{/changePassword}">Change Password</a>
+                    <a class="dropdown-item" th:href="@{/logout}">Log out</a>
+                </div>
+            </div>
+        </nav>
+        <!-- /.navbar -->
+
+
+
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-light-primary elevation-4">
+            <!-- Brand Logo -->
+
+
+            <a th:href="@{/}" class="brand-link">
+                <!-- <img src="dist/img/img.png" alt="Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"> -->
+                <span class="brand-text">iBizTech</span>
+                <span class="brand-text font-weight-light">System</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul id="myTree" class="nav nav-pills nav-sidebar flex-column nav-compact nav-child-indent"
+                        data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                        <input id="myTreeSearch" type="text" placeholder="Search" 
+                        onkeyup="filter('myTreeSearch', 'myTree')" class="form-control form-control-sm">
+
+
+
+                        <li th:each="m: ${menuGroups}" class="nav-item has-treeview">
+                            <!-- <a href="#" class="nav-link"> -->
+                            <a th:href="@{${m.menu.webUrl}}" class="nav-link">
+                                <i th:class="${m.menu.iconCode + ' nav-icon'}"></i>
+                                <p class="font-weight-bold text-primary">
+                                    <span th:text="${m.menu.funcDesc}" th:remove="tag">funcDesc</span>
+                                    <i class="right fa fa-angle-left"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview overlay">
+                                <li class="nav-item" th:each="mm:${m.menus}">
+                                    <a th:href="@{${mm.webUrl}}" class="nav-link" >  <!-- target="_blank" -->
+                                        <i th:class="${mm.iconCode + ' nav-icon'}"></i>
+                                        <p th:text="${mm.funcDesc}" class="text-success"></p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="alert alert-primary delay5000" role="alert" th:if="${session.permission}"
+                        th:text="${session.permission}"></div>
+                    <div th:if="${message}" th:text="${message}" th:class="${class}" role="alert"></div>
+
+                    <!-- <div class="row">
+                        <div class=" col-md-6">
+                            <div class="card">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class=" col-md-6">
+                            <div class="card">
+                                <canvas id="chart-area"></canvas>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+
+
+                    <!-- <div class="container" style="padding-top: 4rem;">
+                        <div class="row">
+                            <div th:each="menu: ${menus}" th:classappend="${menu.menuList =='T'} ? col-md-12 : ''">
+                                <hr th:if="${menu.menuList == 'T'}">
+                                <h3 th:if="${menu.menuList == 'T'}" th:text="${menu.funcDesc}"></h3>
+                                <br th:if="${menu.menuList == 'T'}">
+                                <a th:if="${menu.menuList != 'T'}" th:href="${menu.webUrl}"
+                                    class='btn btn-sm btn-lg btn-outline-default' style="margin: 5px;">
+                                    <div style="text-align: center;">
+                                        <i th:class="${menu.iconCode}"></i>
+                                        <div th:text="${menu.funcDesc}"></div>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div> -->
+
+
+
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+<div th:replace="layout/script :: script"></div>
+<!-- <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132)',
+                    'rgba(54, 162, 235)',
+                    'rgba(255, 206, 86)',
+                    'rgba(75, 192, 192)',
+                    'rgba(153, 102, 255)',
+                    'rgba(255, 159, 64)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+
+
+</script>
+<script>
+
+    var ctx_area = document.getElementById('chart-area').getContext('2d');
+    var myChart_area = new Chart(ctx_area, {
+        type: 'pie',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132)',
+                    'rgba(54, 162, 235)',
+                    'rgba(255, 206, 86)',
+                    'rgba(75, 192, 192)',
+                    'rgba(153, 102, 255)',
+                    'rgba(255, 159, 64)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script> -->
+
+</html>

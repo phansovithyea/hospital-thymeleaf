@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/header :: header"></head>
+
+<body>
+    <nav th:replace="layout/navbar_menu :: navbar_menu"></nav>
+    <form th:action="@{/sample/report(id=${id})}" method="POST" th:object="${reportType}">
+    	<div class="container-fluid" style="padding-top: 4rem; padding-left: 0.5rem;padding-right: 0.5rem;">
+    		<div class="card border-primary mb-3">
+	    		<div class="card-header bg-light border-light">
+	    			<label class="label-control" th:text="${session.pathString}"></label><br>
+	    			<div class="card-tools pull-right">
+				      <span><a th:href="@{/reporttype/view( id = ${id} )}" class="btn">
+				      <i class="fa fa-gear" aria-hidden="true"></i></a></span> 
+				    </div>
+	    		</div>
+	
+		        <div class="card-body" style="padding-top: 0.5rem; padding-bottom:0.5rem;">	        	
+		            <button type="submit" class="btn btn-sm btn-primary">Preview</button>
+		            <a th:href="@{/sample}" class="btn btn-sm btn-warning">Cancel</a>
+	        	</div>
+	        </div>
+	       
+			<div th:if="${message}" th:text="${message}" th:class="${class}" role="alert"></div>
+	        <div class="card border-primary mb-3">
+	        	<div class="card-body text-primary" style="padding-top: 1rem; padding-bottom:0rem;">	
+	
+	            
+	            <div class="row form-group">
+	                <label class="control-label col-md-2 text-md-right" th:for="ReportCode">Code</label>
+	                <div class="col-md-4">
+	                	<input type="hidden" th:field="*{ReportCode}" />
+	                    <input disabled type="text" th:field="*{ReportCode}" th:class="${#fields.hasErrors('ReportCode')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+	                    
+	                </div>
+					
+					<label class="control-label col-md-2 text-md-right" th:for="ReportName">Name</label>
+	                <div class="col-md-4">                  
+	                    <input type="hidden" th:field="*{ReportName}" />      
+	                    <input disabled type="text" th:field="*{ReportName}" th:class="${#fields.hasErrors('ReportName')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+	                    
+	                </div>
+	            </div>
+	          
+	          	 <div class="row form-group">
+                   <!--  <label class="control-label col-md-2 text-md-right" th:for="TempWebsite">Web site</label>
+                    <div class=" col-md-4">
+                        
+                        <input type="text" th:field="*{TempWebsite}" th:class="${#fields.hasErrors('TempWebsite')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+                        <p th:if="${#fields.hasErrors('TempWebsite')}" th:errors="*{TempWebsite}" class="text-danger"></p>
+                    </div> -->
+
+                    <label class="control-label col-md-2 text-md-right" th:for="ReportFormat">Format</label>
+                    <div class=" col-md-4">
+                        
+                        <select th:field="*{ReportFormat}" class="form-control form-control-sm" >
+                             <option value=""></option>
+                            <option  th:each="reportformat : ${reportformats}" th:value="${reportformat.Code}" th:text="${reportformat.Name}" >
+                            </option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('ReportFormat')}" th:errors="*{ReportFormat}" class="text-danger"></p>
+                    </div>
+                </div>
+                
+                <!-- <div class="row form-group">
+                    
+                    <label class="control-label col-md-2 text-md-right" th:for="TypeGroup">Group</label>
+                    <div class=" col-md-4">
+                        
+                        <select th:field="*{TypeGroup}" class="form-control form-control-sm" onchange="get_name_code('sample/sampletype/','TypeGroup', 'TempType')" >
+                             <option value=""></option>
+                            <option  th:each="typegroup : ${typegroups}" th:selected="${typegroup.Code==sample.TypeGroup}" th:value="${typegroup.Code}" th:text="${typegroup.Name}" >
+                            </option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('TypeGroup')}" th:errors="*{TypeGroup}" class="text-danger"></p>
+                    </div>
+                    
+                    <label class="control-label col-md-2 text-md-right" th:for="TempType">Type</label>
+                    <div class=" col-md-4">
+                        
+                        <select th:field="*{TempType}" class="form-control form-control-sm" >
+                        	<option value=""> </option>
+                            <option th:value="*{TempType}" th:text="*{TempType}"></option>
+                        </select>
+                        <p th:if="${#fields.hasErrors('TempType')}" th:errors="*{TempType}" class="text-danger"></p>
+                    </div>
+                </div> -->
+                
+	            </div>
+	            	
+	        </div>
+	        <!-- <div class="row container-fluid table-responsive" style="padding-right: 0px;">
+				<table th:replace="layout/list_export :: list_data"></table>
+			</div> -->
+			<!-- <div class="card-footer">
+	            	</div>
+	        </div> -->
+	     </div>
+	     </div>
+    </form>
+    
+</body>
+<div th:replace="layout/script :: script"></div>
+
+</html>

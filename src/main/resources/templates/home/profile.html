@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/header :: header">
+    <title>User Profile</title>
+</head>
+
+<body>
+    <nav th:replace="layout/navbar :: navbar"></nav>
+
+    <br>
+	<form th:action="@{/profile}" method="POST" th:object="${account}">
+    <div class="container" style="padding-top: 4rem;">
+        <div class="card card-primary card-outlet" style="margin-left: 10rem; margin-right: 10rem;">
+            <div class="card-header">
+                <h3>Profiles</h3>
+                Manage your profile information
+            </div>
+            <div class="card-body">
+                <!-- <a href="/">Home</a> -->
+
+                <div class="text-center">
+                    <img class="img-fluid img-circle rounded-circle img-thumbnail"
+                        src="https://cdn.dribbble.com/users/123846/screenshots/6426558/ironman-full_2x.jpg"
+                        alt="User profile picture" style="width: 10rem;">
+                    <br>
+                    <input type="file" class="btn btn-sm btn-sm" accept="image/x-png,image/gif,image/jpeg">
+                </div>
+                <hr>
+                <div th:if="${message}" th:text="${message}" th:class="${class}" role="alert"></div>
+                <div class="row form-group">
+                	<!-- <label for="" class="form-label">Account Name</label>
+                    <div class="form-group col-md-4">                  
+                        <input disabled th:value="${account.userId}" type="text" class="form-control form-control-sm">
+                    </div> -->
+                    <label class="control-label col-md-2 text-md-right" th:for="userId">Account Name</label>
+					<div class="col-md-4" >
+						<input type="hidden"  th:field="*{userId}"/>
+						<input type="text" disabled id="userId" th:field="*{userId}" th:class="${#fields.hasErrors('userId')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+					</div>
+					
+                    <label class="control-label col-md-2 text-sm-left text-md-right" th:for="UDLang">Language</label>
+                    <div class=" col-md-4">
+                         <select th:field="*{UDLang}"  th:class="${#fields.hasErrors('UDLang')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'" >
+                             <option value=""></option>
+                            <option  th:each="codename : ${lantypes}" th:value="${codename.Code}" th:text="${codename.Name}" ></option>
+                        </select>
+                      </div>
+                </div>
+                <div class="row form-group">
+                	<label class="control-label col-md-2 text-md-right" th:for="UFName">First Name</label>
+					<div class="col-md-4" >
+						<input type="text" id="UFName" th:field="*{UFName}" th:class="${#fields.hasErrors('UFName')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+					</div>
+					<label class="control-label col-md-2 text-md-right" th:for="ULName">Last Name</label>
+					<div class="col-md-4" >
+						<input type="text" id="ULName" th:field="*{ULName}" th:class="${#fields.hasErrors('ULName')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+					</div>
+				</div>
+				<div class="row form-group">
+					<label class="control-label col-md-2 text-md-right" th:for="Email">Email</label>
+					<div class="col-md-4" >
+						<input type="text" id="Email" th:field="*{Email}" th:class="${#fields.hasErrors('Email')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+					</div>
+					
+                	<label class="control-label col-md-2 text-md-right" th:for="JobTitle">Job Title</label>
+					<div class="col-md-4" >
+						<input type="text" disabled id="JobTitle" th:field="*{JobTitle}" th:class="${#fields.hasErrors('JobTitle')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+					</div>
+				</div>	
+				
+				<div class="row form-group">
+					<label class="control-label col-md-2 text-md-right" th:for="GName">Group</label>
+					<div class="col-md-4" >
+						<input type="text" disabled id="GName" th:field="*{GName}" th:class="${#fields.hasErrors('GName')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+					</div>
+					
+                	<label class="control-label col-md-2 text-md-right" th:for="BranchName">Branch</label>
+					<div class="col-md-4" >
+						<input type="text" disabled id="BranchName" th:field="*{BranchName}" th:class="${#fields.hasErrors('BranchName')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+					</div>
+				</div>	
+				<div class="row form-group">
+					<label class="control-label col-md-2 text-md-right" th:for="UDesc">Description</label>
+					<div class="col-md-10" >
+						<input type="text" id="UDesc" th:field="*{UDesc}" th:class="${#fields.hasErrors('UDesc')} ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm'">
+					</div>
+				</div>
+				<div class="row form-group">
+					 <div class="card-body" style="padding-top: 0.5rem; padding-bottom:0.5rem;">
+				         <button type="submit" class="btn btn-sm btn-primary">Save</button>
+			            <!-- <a th:href="@{/sample}" class="btn btn-sm btn-warning">Cancel</a> -->
+				     </div>
+				</div>
+                   <!--  <div class="form-group col-md-4">
+                        <label for="" class="form-label">Full Name</label>
+                        <input disabled th:value="${account.fullName}" type="text" class="form-control form-control-sm">
+                    </div> -->
+                    <!-- 
+                    <div class="form-group col-md-4">
+                        <label for="" class="form-label">Job Title</label>
+                        <input disabled th:value="${account.jobTitle}" type="text" class="form-control form-control-sm">
+                    </div> -->
+                    <!-- 
+                    <div class="form-group col-md-4">
+                        <label for="" class="form-label">Group</label>
+                        <input disabled th:value="${account.branchname}" type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="" class="form-label">Branch</label>
+                        <input disabled th:value="${account.branchname}" type="text" class="form-control form-control-sm">
+                    </div>
+                     -->
+                
+            </div>
+        </div>
+    </div>
+	</form>
+
+</body>
+<div th:replace="layout/script :: script">
+
+</div>
+
+</html>

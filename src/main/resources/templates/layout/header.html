@@ -1,0 +1,16 @@
+<head th:fragment="header" >
+    <title>iBizTech System</title>
+    <meta charset="UTF-8">
+    <meta th:name="_csrf" th:content="${_csrf.token}"/>
+    <meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <meta th:name="_app" th:content="@{/}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/static/plugins/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/static/plugins/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/plugins/datatables/jquery.dataTables.min.css}">
+   <!--  <link rel="stylesheet" th:href="@{/static/plugins/datatables/dataTables.bootstrap.min.css}"> -->
+    <link rel="stylesheet" th:href="@{/static/plugins/adminlte.min.css}">
+    <link rel="stylesheet" th:href="@{/static/plugins/select2/select2.min.css}">
+    <link rel="stylesheet" th:href="@{/static/plugins/overlayScrollbars/css/OverlayScrollbars.min.css}">
+    <link rel="stylesheet" th:href="@{/static/common.css}">
+</head>
