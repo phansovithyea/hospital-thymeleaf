@@ -9,7 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.stereotype.Service;
 
-import com.ibiztechno.app.repository.sql.SqlRepository;
+import com.ibiztechno.app.repository.SqlRepository;
 
 @Service
 public class CustomLogoutHandler implements LogoutHandler {

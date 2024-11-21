@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 
 import com.ibiztechno.app.model.CodeName;
 import com.ibiztechno.app.model.CodeValue;
-import com.ibiztechno.app.repository.sql.SqlRepository;
+import com.ibiztechno.app.repository.SqlRepository;
 
 public class Dashboard {
 	String Code;

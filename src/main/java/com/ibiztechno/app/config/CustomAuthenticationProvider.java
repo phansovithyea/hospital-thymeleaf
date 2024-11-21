@@ -22,7 +22,7 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.ibiztechno.app.repository.sql.SqlRepository;
+import com.ibiztechno.app.repository.SqlRepository;
 
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {

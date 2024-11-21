@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ibiztechno.app.repository.sql.SqlRepository;
+import com.ibiztechno.app.repository.SqlRepository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
