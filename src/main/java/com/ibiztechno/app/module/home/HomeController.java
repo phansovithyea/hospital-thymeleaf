@@ -13,6 +13,8 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -106,7 +108,7 @@ public class HomeController {
 		return new ModelAndView("/home/index").addObject("menuGroups", menuGroups);
 	}
 
-	@RequestMapping(value = "/changePassword", method = RequestMethod.GET)
+	@GetMapping("/changePassword")
 	public String ChangePassword(ChangePassword changePassword, Principal principal, HttpSession session) {
 
 		changePassword.setUsername(principal.getName());
@@ -115,7 +117,7 @@ public class HomeController {
 		return "/home/changePassword";
 	}
 
-	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+	@PostMapping("/changePassword")
 	public String ChangePassword(@Valid ChangePassword changePassword, Errors errors, Model model, Principal principal,
 			HttpSession session) {
 
@@ -148,7 +150,7 @@ public class HomeController {
 	}
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+	@GetMapping("/profile")
 	public String Profile(Model model, Principal principal, HttpSession session) throws Exception {
 
 		LoadDropdown(model, principal);
@@ -161,7 +163,7 @@ public class HomeController {
 		return "/home/profile";
 	}
 
-	@RequestMapping(value = "/profile", method = RequestMethod.POST)
+	@PostMapping("/profile")
 	public String Profile(@Valid Account context, Errors errors, Model model, Principal principal,
 			HttpSession session, HttpServletRequest request) {
 
